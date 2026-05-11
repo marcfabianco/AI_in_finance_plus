@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AI in Financial Policy — Demo</title>
+  <meta name="description" content="A demo of policy-attention analysis on AI in international banking regulation and supervision." />
+
+  <!-- Fonts (CDN for scaffold; self-host before publication, per design rules) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="styles/tokens.css" />
+  <link rel="stylesheet" href="styles/base.css" />
+  <link rel="stylesheet" href="styles/layout.css" />
+  <link rel="stylesheet" href="styles/components.css" />
+</head>
+
+<body>
+  <main>
+    <!-- HERO -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero__inner">
+        <p class="eyebrow reveal" data-reveal-index="0">A Policy Benchmarking Demo</p>
+        <h1 id="hero-title" class="hero__title reveal" data-reveal-index="1">
+          AI in Financial Policy
+        </h1>
+        <p class="hero__lede reveal" data-reveal-index="2">
+          A general inspection of policy attention and narrative on artificial
+          intelligence in international banking regulation and supervision —
+          how attention has evolved, where risks are framed, and where
+          standard-setters diverge from academic literature.
+        </p>
+        <p class="scroll-hint reveal" data-reveal-index="3">Scroll</p>
+      </div>
+    </section>
+
+    <!-- SECTION 1 OPENER -->
+    <section class="section-opener" aria-labelledby="documents-title">
+      <div class="section-opener__inner">
+        <p class="eyebrow reveal" data-reveal-index="0">Section 01</p>
+        <h2 id="documents-title" class="section-opener__title reveal" data-reveal-index="1">
+          The corpus
+        </h2>
+        <p class="section-opener__lede reveal" data-reveal-index="2">
+          Which documents we read, why we chose them, and how the corpus is
+          distributed over time and across types.
+        </p>
+      </div>
+    </section>
+
+    <!-- SECTION 1 BODY -->
+    <section class="section-body">
+      <div class="section-body__inner">
+        <div class="prose reveal" data-reveal-index="0">
+          <p>
+            We include documents that international bodies themselves classify
+            as AI-relevant. The BIS, for instance, curates an
+            <em>AI at BIS</em> publications stream — we ingest all documents,
+            speeches, and notes filed under that classification.
+          </p>
+          <p>
+            Equivalent classifications are used at the FSB, IMF, World Bank,
+            FATF, and OECD. Insurers (IAIS) and securities (IOSCO) are out of
+            scope; gambling-adjacent AI literature is also excluded.
+          </p>
+          <p style="margin-top: 2rem;">
+            <a class="method-button" href="#" aria-label="Open the methodology note for document selection">
+              Methodology &rarr;
+            </a>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2 OPENER -->
+    <section class="section-opener section-opener--tinted" aria-labelledby="attention-title">
+      <div class="section-opener__inner">
+        <p class="eyebrow reveal" data-reveal-index="0">Section 02</p>
+        <h2 id="attention-title" class="section-opener__title reveal" data-reveal-index="1">
+          Policy attention to AI
+        </h2>
+        <p class="section-opener__lede reveal" data-reveal-index="2">
+          Two complementary readings of the same corpus — one counts words,
+          the other reads meaning.
+        </p>
+      </div>
+    </section>
+
+    <!-- SECTION 2 BODY — TRADITIONAL -->
+    <section class="section-body">
+      <div class="section-body__inner">
+        <div class="grid-figure-text">
+          <figure class="figure reveal" data-reveal-index="0">
+            <img src="assets/figures/F1a_traditional.png" alt="Yearly keyword density of AI-related terms per 1,000 words in the corpus, flat pre-2022, sharp jump from 2023 onward." />
+            <figcaption class="figure-caption">
+              Traditional method — weighted keyword density per 1,000 words,
+              Tier 1 (GenAI vocabulary) weighted twice Tier 2 (classic AI/ML).
+            </figcaption>
+          </figure>
+          <div class="prose reveal" data-reveal-index="1">
+            <h3>1. Traditional reading</h3>
+            <p>
+              Experts pick a list of keywords and count how often they appear.
+              On this corpus, the keyword method tells a sharp story:
+              negligible attention pre-2022, then a jump from 2023 onward.
+            </p>
+            <p>
+              The catch: this reading captures a <em>vocabulary shift</em> more
+              than an attention shift. Tier 1 GenAI terms — "foundation model,"
+              "large language model," "GenAI" — simply did not exist as a
+              regulator's vocabulary before 2022.
+            </p>
+            <p style="margin-top: 1.5rem;">
+              <a class="method-button" href="#" aria-label="Open the methodology note for the traditional keyword method">
+                Methodology &rarr;
+              </a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2 BODY — MODERN -->
+    <section class="section-body">
+      <div class="section-body__inner">
+        <div class="grid-figure-text grid-figure-text--reverse">
+          <figure class="figure reveal" data-reveal-index="0">
+            <img src="assets/figures/F1_paragraph_joint.png" alt="Yearly share of paragraphs whose semantic similarity to AI anchor concepts exceeds three thresholds (0.50, 0.55, 0.60). Attention rises from 11% in 2019 to roughly 45% by 2025, with widening then tightening confidence bands." />
+            <figcaption class="figure-caption">
+              Modern method — share of paragraphs whose semantic similarity
+              to AI anchors clears three sensitivity thresholds (τ).
+              Confidence bands from doc-cluster bootstrap, 10,000 iterations.
+            </figcaption>
+          </figure>
+          <div class="prose reveal" data-reveal-index="1">
+            <h3>2. Semantic reading</h3>
+            <p>
+              Transformer embeddings score every paragraph by its semantic
+              proximity to a curated set of AI "anchor" sentences. The story
+              changes: AI-adjacent attention was already substantial before
+              the GenAI wave, and rose steadily.
+            </p>
+            <p>
+              Robust across three sensitivity thresholds. The tightening of
+              the confidence band after 2022 suggests attention has become
+              more focused — earlier years were dispersed across many framings.
+            </p>
+            <p style="margin-top: 1.5rem;">
+              <a class="method-button" href="#" aria-label="Open the methodology note for the semantic method">
+                Methodology &rarr;
+              </a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>Demo — methods preview. Results are illustrative; the methodology is the deliverable.</p>
+    </div>
+  </footer>
+
+  <script src="scripts/reveal.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+/* Components — eyebrows, captions, buttons, scroll hint, reveal */
+
+.eyebrow {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: var(--fs-eyebrow);
+  font-weight: 600;
+  letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase;
+  color: var(--link);
+}
+
+.figure {
+  background: var(--surface);
+  padding: 1.25rem;
+  border: 1px solid var(--divider);
+}
+.figure img { width: 100%; }
+.figure-caption {
+  margin-top: 0.75rem;
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+  font-style: italic;
+  line-height: 1.5;
+}
+
+.method-button {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--link);
+  padding: 0.6em 1.1em;
+  border: 1px solid var(--link);
+  border-bottom: 1px solid var(--link);
+  background: transparent;
+  transition: background 180ms var(--ease-out), color 180ms var(--ease-out);
+}
+.method-button:hover { background: var(--link); color: var(--bg); }
+
+.scroll-hint {
+  margin-top: 4rem;
+  font-size: var(--fs-eyebrow);
+  letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase;
+  color: var(--text-muted);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6em;
+}
+.scroll-hint::after {
+  content: "";
+  width: 1px;
+  height: 2.2em;
+  background: var(--text-muted);
+  display: inline-block;
+  animation: scroll-hint-pulse 2.4s var(--ease-out) infinite;
+  transform-origin: top;
+}
+@keyframes scroll-hint-pulse {
+  0%   { transform: scaleY(0.3); opacity: 0.4; }
+  50%  { transform: scaleY(1);   opacity: 1; }
+  100% { transform: scaleY(0.3); opacity: 0.4; }
+}
+
+/* Scroll-fade reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(var(--reveal-rise));
+  transition:
+    opacity var(--reveal-dur) var(--ease-out),
+    transform var(--reveal-dur) var(--ease-out);
+  transition-delay: calc(var(--reveal-index, 0) * var(--reveal-stagger));
+  will-change: opacity, transform;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+  .scroll-hint::after { animation: none; }
+  html { scroll-behavior: auto; }
+}

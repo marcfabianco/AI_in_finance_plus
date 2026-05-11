@@ -1,0 +1,58 @@
+/* Design tokens — single source of truth.
+   No other file hardcodes hex, px, or motion values. */
+
+:root {
+  /* Surfaces */
+  --bg:               #EEEDE8;
+  --bg-tint-darker:   #E8E6E0;
+  --bg-tint-lighter:  #F4F2EC;
+  --surface:          #FFFFFF;
+
+  /* Text */
+  --text:             #2A2A2A;
+  --text-secondary:   #605C58;
+  --text-muted:       #A8A6A0;
+
+  /* Accents (one role each) */
+  --title:            #A8453C; /* terracotta — titles only */
+  --link:             #1F3A5F; /* ink blue — links, eyebrows, labels, nav */
+  --spark:            #F5D0CC; /* soft pink — rare, never structural */
+
+  /* Type */
+  --font-display: "Cormorant Garamond", "Cormorant", Georgia, serif;
+  --font-body:    "Inter", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+
+  --fs-eyebrow:    0.75rem;   /* 12px */
+  --fs-body:       1.0625rem; /* 17px */
+  --fs-lede:       1.25rem;   /* 20px */
+  --fs-h3:         1.75rem;   /* 28px */
+  --fs-h2:         2.75rem;   /* 44px */
+  --fs-h1:         clamp(3rem, 7vw, 5.5rem);
+
+  --lh-body:       1.6;
+  --lh-display:    1.1;
+
+  --tracking-eyebrow: 0.18em;
+
+  /* Layout */
+  --container-max: 72rem;     /* 1152px */
+  --gutter:        2rem;
+  --gutter-lg:     4rem;
+
+  /* Motion */
+  --ease-out:      cubic-bezier(0.22, 0.61, 0.36, 1);
+  --reveal-dur:    700ms;
+  --reveal-rise:   10px;
+  --reveal-stagger: 80ms;
+
+  /* Rule lines */
+  --divider:       color-mix(in srgb, var(--text-muted) 25%, transparent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --reveal-dur: 1ms;
+    --reveal-rise: 0px;
+    --reveal-stagger: 0ms;
+  }
+}

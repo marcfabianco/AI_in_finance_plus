@@ -1,0 +1,79 @@
+/* Layout — containers, hero, section openers, section body, grids */
+
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+/* Hero — 100vh, full-bleed, quiet vertical fade */
+.hero {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: var(--gutter-lg) var(--gutter);
+  background: linear-gradient(180deg, var(--bg) 0%, var(--bg-tint-lighter) 100%);
+}
+.hero__inner { max-width: 56rem; text-align: left; }
+.hero__title { margin-top: 0.6em; margin-bottom: 0.4em; }
+.hero__lede {
+  font-size: var(--fs-lede);
+  color: var(--text-secondary);
+  max-width: 38em;
+}
+
+/* Section opener — 100vh title card, just eyebrow + h2 + lede */
+.section-opener {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: var(--gutter-lg) var(--gutter);
+}
+.section-opener__inner { max-width: 56rem; }
+.section-opener__title { margin: 0.4em 0 0.4em; }
+.section-opener__lede {
+  font-size: var(--fs-lede);
+  color: var(--text-secondary);
+  max-width: 36em;
+}
+
+/* Alternate section opener tint for rhythm (use sparingly) */
+.section-opener--tinted { background: var(--bg-tint-darker); }
+
+/* Section body — natural height, flows after the opener */
+.section-body {
+  padding: var(--gutter-lg) var(--gutter);
+}
+.section-body__inner {
+  max-width: var(--container-max);
+  margin-inline: auto;
+}
+
+/* Prose column */
+.prose { max-width: 36em; }
+.prose p + p { margin-top: 1em; }
+
+/* Two-column grid: figure + text */
+.grid-figure-text {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--gutter-lg);
+  align-items: center;
+}
+@media (min-width: 900px) {
+  .grid-figure-text {
+    grid-template-columns: 7fr 5fr;
+  }
+  .grid-figure-text--reverse { direction: rtl; }
+  .grid-figure-text--reverse > * { direction: ltr; }
+}
+
+/* Footer */
+.site-footer {
+  padding: var(--gutter-lg) var(--gutter);
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  border-top: 1px solid var(--divider);
+  margin-top: var(--gutter-lg);
+}
