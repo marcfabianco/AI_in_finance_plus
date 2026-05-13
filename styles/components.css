@@ -400,6 +400,49 @@
   gap: 1.5rem 2rem;
   margin: 0.75rem 0 2rem;
 }
+
+/* Capability list — numbered enumeration used in the hero. Numbers
+   are bold and hang in the margin so the items align cleanly. */
+.capability-block {
+  margin: 1.75rem 0 0.5rem;
+  max-width: 34em;
+}
+.capability-block__label {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.9375rem;
+  color: var(--text);
+  margin: 0 0 0.75rem;
+  letter-spacing: 0.005em;
+}
+.capability-list {
+  list-style: none;
+  counter-reset: caps;
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: var(--text);
+}
+.capability-list li {
+  counter-increment: caps;
+  position: relative;
+  padding-left: 2.2em;
+  margin: 0 0 0.5em;
+  text-align: justify;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+}
+.capability-list li::before {
+  content: counter(caps) ")";
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-weight: 700;
+  color: var(--text);
+}
+.capability-list li:last-child { margin-bottom: 0; }
 .subpage__title {
   margin: 0 0 2.5rem;
 }
