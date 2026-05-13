@@ -74,6 +74,9 @@
   font-size: var(--fs-lede);
   color: var(--text-secondary);
   max-width: 36em;
+  text-align: justify;
+  hyphens: auto;
+  -webkit-hyphens: auto;
 }
 .section-opener__lede--wide { max-width: 44em; }
 
