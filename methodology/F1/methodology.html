@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Trends in policy attention — methodological note — AI in Financial Policy</title>
+  <meta name="description" content="Methodology note: trends in policy attention — methodological note — AI in Financial Policy demo." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="../../styles/tokens.css" />
+  <link rel="stylesheet" href="../../styles/base.css" />
+  <link rel="stylesheet" href="../../styles/layout.css" />
+  <link rel="stylesheet" href="../../styles/components.css" />
+
+  <!-- MathJax 3 — render $...$ and $$...$$ as math. -->
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [["$", "$"]],
+        displayMath: [["$$", "$$"]],
+        processEscapes: true
+      },
+      svg: { fontCache: "global" }
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+</head>
+
+<body>
+  <header class="page-header">
+    <div class="page-header__inner">
+      <p class="page-header__site"><a href="../../index.html">AI in Financial Policy</a></p>
+      <a class="arrow-link" href="../../index.html" aria-label="Back to the main page">&larr; Back</a>
+    </div>
+  </header>
+
+  <main class="subpage subpage--wide">
+    <p class="eyebrow">Section 02 · Methodology</p>
+    <h1 class="subpage__title">Trends in policy attention — methodological note</h1>
+
+    <nav class="subnav" aria-label="Methodology notes">
+      <a class="subnav__item subnav__item--active" href="methodology.html">Methodology</a>
+      <a class="subnav__item" href="anchor_selection.html">Anchor selection</a>
+    </nav>
+
+    <article class="note-body">
+<h2>1. Objective</h2>
+<p>Yearly attention to artificial intelligence in international supervisory documents over 2019–2025. The corpus is 336 documents from BIS, FATF, FSB, IMF, OECD, and the World Bank. Two methods are applied to the same corpus and reported as separate figures.</p>
+<h2>2. Traditional method (F1a)</h2>
+<p>Weighted dictionary count. For each document we compute a density per 1,000 words</p>
+<p>$$\text{density} = \frac{2\,c_1 + c_2}{n_{\text{words}}} \cdot 1000$$</p>
+<p>where $c_1$ counts occurrences of Tier 1 terms — <em>artificial intelligence</em>, <em>generative AI</em>, <em>GenAI</em>, <em>LLM</em>, <em>large language model</em>, <em>foundation model</em>, <em>ChatGPT</em>, <em>GPT-3</em>, <em>GPT-4</em>, <em>GPT-5</em>, <em>agentic AI</em>, <em>AI agent</em>, <em>deepfake</em>, <em>AI safety</em>, <em>AI alignment</em>, <em>AGI</em>, <em>frontier AI</em> — and $c_2$ counts occurrences of Tier 2 terms — <em>machine learning</em>, <em>deep learning</em>, <em>neural network</em>, <em>transformer model</em>, <em>NLP</em>, <em>computer vision</em>. Each term is matched as a whole word, case-insensitive, with an optional trailing <em>s</em> for plurals. "Whole word" means surrounded by non-letter characters on both sides, so e.g. <em>AI</em> matches in <em>generative AI</em> but not inside <em>Mumbai</em>. Hyphenated variants (e.g. <em>deep-learning</em>) are not matched.</p>
+<p>The 2× weighting on Tier 1 reflects that Tier 1 terms are unambiguously AI-specific in supervisory text, whereas Tier 2 terms (e.g. <em>neural network</em>) sometimes appear in non-AI contexts. Each document contributes one density value to its year and the figure plots the yearly mean. This is a standard dictionary method (Grimmer, Roberts &amp; Stewart 2022; Hassan et al. 2025): cheap, transparent, exact-match. A companion figure F1b uses equal weights ($w_1 = w_2 = 1$); the time-series shape is preserved and the substantive conclusion — a sharp post-2022 jump — is unchanged.</p>
+<h2>3. Modern method (F1)</h2>
+<p>The traditional method counts literal matches only. A paragraph that says <em>"the use of AI"</em> is counted; a paragraph that paraphrases the same idea without the keyword is missed. The modern method complements it by measuring <strong>semantic similarity</strong>, operationalised here as the cosine similarity of sentence-embedding vectors.</p>
+<h3>3.1 Tool</h3>
+<p>Each text unit and each anchor sentence is converted into a 768-dimensional vector by a pre-trained transformer-based sentence encoder, <code>BAAI/bge-base-en-v1.5</code>. The transformer is a neural-network architecture that, given a sentence, produces a vector representation in which sentences of similar meaning lie close together in the 768-dimensional space and unrelated sentences lie far apart, largely independent of surface wording (Grimmer, Roberts &amp; Stewart 2022). The model used here was trained on hundreds of millions of sentence pairs for that property; we apply it as-is, without further fine-tuning.</p>
+<p>Implementation details. Inputs longer than the encoder's 512-token context window are silently truncated; the BGE encoder uses the first-token (CLS) representation as the sentence vector. We do not use a query/passage instruction prefix. Output vectors are L2-normalised by us after encoding, so cosine similarity reduces to a dot product.</p>
+<h3>3.2 Units and anchors</h3>
+<p>The pipeline is run twice in parallel: once at the <strong>paragraph</strong> level (55,547 units) and once at the <strong>sentence</strong> level (161,052 units). Both panels are reported in the figure family. The same gate, anchors, and aggregation procedure apply to each.</p>
+<p>Twenty-four anchor sentences are curated from the corpus itself. Twelve are drawn from documents dated 2019–2022 and use classical AI/ML vocabulary; twelve are drawn from documents dated 2023+ and use GenAI-era vocabulary. Curation balances vocabulary coverage and supervisory register. The full procedure is documented in the anchor selection note.</p>
+<p><a class="arrow-link" href="anchor_selection.html">Anchor selection &rarr;</a>. The 24 anchors function as a reference set: every text unit is scored against this set.</p>
+<p>Because the anchors are corpus-sourced, the same 24 sentences also appear in the unit pool. This is anchor leakage. The leaked units are 24 out of 55,547 paragraphs (0.04%) or 24 out of 161,052 sentences (0.01%) and are not separately excluded; the effect on yearly shares is below numerical precision. The fact is documented for transparency rather than corrected.</p>
+<h3>3.3 Gate</h3>
+<p>A keyword gate restricts the figure to units that explicitly mention AI. The objective is to isolate AI-specific discussions from the much broader supervisory conversation about technology in finance — fintech, payment digitalisation, data infrastructure, RegTech and SupTech generically. Cosine similarity alone does not enforce this separation: a paragraph about, say, cloud-computing risk in banking can sit close in the embedding space to a paragraph about LLM deployment without being about AI. The gate is the lexical anchor that prevents this confounding.</p>
+<p>A unit qualifies if it contains at least one of the following tokens:</p>
+<ul>
+<li><code>AI</code></li>
+<li><code>artificial intelligence</code></li>
+<li><code>machine learning</code></li>
+<li><code>GenAI</code></li>
+<li><code>agentic</code></li>
+<li><code>LLM</code></li>
+</ul>
+<p>Each token is matched as a <strong>whole word</strong>, case-insensitive, with an optional trailing <em>s</em> for plurals. "Whole word" means the token must be surrounded by non-letter characters (spaces, punctuation, parentheses, line breaks) on both sides — so <code>AI</code> matches in <em>generative AI</em>, <em>(AI)</em>, or <em>AI agents</em>, but does <strong>not</strong> match inside <em>Mumbai</em> or <em>AIDS</em>. Consequently a unit containing <em>generative AI</em>, <em>AI agents</em>, <em>AI safety</em>, <em>AI alignment</em>, etc. passes because <code>AI</code> is present as a standalone word. Units without any of these six tokens are not eligible, regardless of how high their embedding similarity to the anchor set. The gate defines the figure's denominator-conditional set.</p>
+<h3>3.4 Score</h3>
+<p>For each unit $u$ with embedding vector $\mathbf{v}_u$ and each anchor $a$ with vector $\mathbf{v}_a$, semantic similarity is the cosine of the angle between the vectors,</p>
+<p>$$\cos(u, a) = \frac{\mathbf{v}_u \cdot \mathbf{v}_a}{\|\mathbf{v}_u\|\,\|\mathbf{v}_a\|}.$$</p>
+<p>Both vectors are unit-normalised, so cosine equals their dot product. The unit's score is its maximum cosine across the 24 anchors,</p>
+<p>$$s_u = \max_{a \in \mathcal{A}}\cos(u, a),$$</p>
+<p>read as: how close to <em>any</em> of the curated AI sentences this unit lies. Cosine runs from $-1$ (opposite direction) to $+1$ (same direction). Empirically in this corpus, related supervisory text typically scores between 0.50 and 0.80; unrelated text scores below 0.40. These are observations from our runs, not properties of the encoder.</p>
+<h3>3.5 Aggregation</h3>
+<p>A unit is <strong>AI-relevant at threshold $\tau$</strong> if it passes the gate <em>and</em> $s_u \geq \tau$. For each year, the figure plots the share of all units in that year that are AI-relevant. Three thresholds $\tau \in \{0.50, 0.55, 0.60\}$ are reported as separate panels and as a joint sensitivity panel (<code>F1_*_joint.png</code>); inspection of the joint panel shows the time-series shape preserved across the three values, with absolute levels shifting modestly.</p>
+<p>Uncertainty is expressed via a <strong>document-cluster bootstrap</strong> (Grimmer, Roberts &amp; Stewart 2022). For each year and each $\tau$, documents are resampled with replacement from that year's pool — when a document is drawn, <em>all</em> its units are carried with it (proper cluster bootstrap, not unit-level resampling). The share is recomputed at each iteration; the procedure is repeated 10,000 times. The 2.5th and 97.5th percentiles of the bootstrap distribution form the 95% confidence interval. The cluster unit is the document because paragraphs and sentences within a single document share topic, register, and authorial voice — they are not independent draws.</p>
+<h2>4. What the two methods complement</h2>
+<p>The two figures answer related but distinct questions.</p>
+<ul>
+<li><strong>Traditional (F1a / F1b)</strong> captures the <strong>vocabulary shift</strong>. Tier 1 terms did not exist in supervisory text before 2022, so the curve is necessarily flat pre-2022 and jumps sharply at 2023.</li>
+<li><strong>Modern (F1)</strong> captures <strong>lexical-and-semantic continuity</strong>. Classical AI/ML talk was already present 2019–2021, and the embedding-based score recognises it. The curve is already substantial pre-2022 and rises further afterward.</li>
+</ul>
+<p>Reading both together avoids two opposite errors. The traditional figure alone implies AI attention "began" with GenAI; the modern figure alone implies the post-2022 shift was a smooth continuation of an existing trajectory. The combined reading is narrower than either: AI/ML topics have been continuously present in the supervisory window, and the vocabulary in which they are discussed has expanded post-2022. The figure does not establish that <em>policy</em> attention to AI as a distinct policy object was equally salient pre-2022 — that question requires reading the documents themselves and is not the figure's claim.</p>
+<h2>5. Limitations</h2>
+<ul>
+<li><strong>Gate false-positive rate not audited.</strong> Some gated units may match an AI token in non-AI contexts (e.g. <em>AI</em> as an unrelated initialism). A spot-check of gated paragraphs is the recommended robustness step and is pending.</li>
+<li><strong>Document-length heterogeneity is not separately controlled.</strong> Long documents (e.g. IMF FSAPs, OECD reports) contribute proportionally more units to the share than short FATF briefs. The figure is a corpus-level proportion, not a document-level average; this is a substantive choice but worth flagging.</li>
+<li><strong>Encoder robustness not checked.</strong> Results have not been replicated with an alternative encoder. The reported shape is conditional on <code>BAAI/bge-base-en-v1.5</code>.</li>
+<li><strong>Single-coder anchor curation.</strong> The 24 anchors were selected by one author; a second-coder agreement check is the recommended practice (Grimmer, Roberts &amp; Stewart 2022) and is pending.</li>
+<li><strong>Lookahead bias in the encoder.</strong> The model was trained on web text post-dating much of the pre-2022 corpus; pre-2022 text is being scored against a vocabulary representation it could not have produced at the time. The shared keyword gate partially mitigates this by requiring an explicit AI/ML token.</li>
+<li><strong>Anchor selection sensitivity.</strong> Add/drop sensitivity (e.g., leave-one-out across the 24 anchors) is a possible robustness check, not currently run.</li>
+</ul>
+<h2>References</h2>
+<p>Grimmer, J., Roberts, M. E., &amp; Stewart, B. M. (2022). <em>Text as data: A new framework for machine learning and the social sciences.</em> Princeton University Press.</p>
+<p>Hassan, T. A., Hollander, S., Kalyani, A., van Lent, L., Schwedeler, M., &amp; Tahoun, A. (2025). Text as data in economic analysis. <em>Journal of Economic Perspectives</em>, 39(3), 191–214.</p>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>Demo — methods preview. Results are illustrative; the methodology is the deliverable.</p>
+    </div>
+  </footer>
+</body>
+</html>

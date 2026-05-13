@@ -17,6 +17,19 @@
   <link rel="stylesheet" href="../../styles/base.css" />
   <link rel="stylesheet" href="../../styles/layout.css" />
   <link rel="stylesheet" href="../../styles/components.css" />
+
+  <!-- MathJax 3 — render $...$ and $$...$$ as math. -->
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [["$", "$"]],
+        displayMath: [["$$", "$$"]],
+        processEscapes: true
+      },
+      svg: { fontCache: "global" }
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
 </head>
 
 <body>
@@ -31,7 +44,7 @@
     <p class="eyebrow">Section 01 · Codebook</p>
     <h1 class="subpage__title">Codebook</h1>
 
-    <nav class="subnav" aria-label="Section 01 methodology notes">
+    <nav class="subnav" aria-label="Methodology notes">
       <a class="subnav__item" href="methodology.html">Methodology</a>
       <a class="subnav__item" href="database_architecture.html">Database architecture</a>
       <a class="subnav__item subnav__item--active" href="codebook.html">Codebook</a>
