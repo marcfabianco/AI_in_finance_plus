@@ -27,7 +27,18 @@ MAP_PATH = ROOT / "assets" / "figures" / "stage4_proximity.html"
 STYLE_MARKER = "<!-- ai-finance-plus-map-style -->"
 STYLE_BLOCK = f"""{STYLE_MARKER}
 <style>
-  html, body {{ margin: 0; padding: 0; height: 100%; background: transparent; }}
+  html {{ height: 100%; background: transparent; }}
+  body {{
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+    background: transparent;
+    /* Vertically centre the network inside the iframe so it aligns
+       with the centred hero text on the left. */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }}
   /* Hide the pyvis loading bar entirely — we never want to show it. */
   #loadingBar, #bar, #border, #text {{ display: none !important; }}
   /* Strip the lightgray border on the network canvas — clashes with
@@ -36,13 +47,15 @@ STYLE_BLOCK = f"""{STYLE_MARKER}
     border: 0 !important;
     background: transparent !important;
   }}
-  /* Bootstrap card wrapper from pyvis: drop the white box + shadow + border. */
+  /* Bootstrap card wrapper from pyvis: drop the white box + shadow + border.
+     Keep block layout (display:flex breaks vis.js canvas sizing). */
   .card, .card-body {{
     border: 0 !important;
     background: transparent !important;
     box-shadow: none !important;
     padding: 0 !important;
   }}
+  .card {{ width: 100%; }}
   /* Center wrapper if present */
   body > center, center {{ display: block; }}
 </style>"""
