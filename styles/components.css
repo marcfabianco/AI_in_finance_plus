@@ -48,11 +48,10 @@
    oversized. Aspect ratio preserves the native shape. */
 .figure--interactive[data-aspect="bar"] iframe {
   aspect-ratio: 820 / 400;
-  max-width: 620px;
 }
 .figure--interactive[data-aspect="pie"] iframe {
   aspect-ratio: 720 / 560;
-  max-width: 480px;
+  max-width: 560px; /* pie reads better not stretched too wide */
 }
 
 /* Methodology arrow link — text-link register, no framed CTA. */

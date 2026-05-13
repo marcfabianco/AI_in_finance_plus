@@ -62,17 +62,41 @@ RESIZE_MARKER = "<!-- ai-finance-plus-resize -->"
 RESIZE_SCRIPT = f"""{RESIZE_MARKER}
 <script>
 (function() {{
-  function resize() {{
+  function resizeAll() {{
     var divs = document.querySelectorAll('.plotly-graph-div');
-    if (window.Plotly && divs.length) {{
-      divs.forEach(function(d) {{
-        try {{ window.Plotly.Plots.resize(d); }} catch (e) {{}}
-      }});
-    }}
+    if (!window.Plotly) return;
+    divs.forEach(function(d) {{
+      try {{ window.Plotly.Plots.resize(d); }} catch (e) {{}}
+    }});
   }}
-  if (document.readyState === 'complete') resize();
-  else window.addEventListener('load', resize);
-  window.addEventListener('resize', resize);
+
+  // Observe the chart div(s) so Plotly resizes whenever the iframe's
+  // own dimensions settle or change. Handles the case where Plotly
+  // renders before the iframe knows its final size.
+  function attachObservers() {{
+    if (!('ResizeObserver' in window)) return;
+    var ro = new ResizeObserver(function() {{ resizeAll(); }});
+    document.querySelectorAll('.plotly-graph-div').forEach(function(d) {{
+      ro.observe(d);
+    }});
+    ro.observe(document.body);
+  }}
+
+  function init() {{
+    resizeAll();
+    attachObservers();
+    // Belt-and-braces: nudge a few times during the first second in
+    // case Plotly is still initialising when the observers attach.
+    var t = 0;
+    var iv = setInterval(function() {{
+      resizeAll();
+      if ((t += 200) >= 1000) clearInterval(iv);
+    }}, 200);
+  }}
+
+  if (document.readyState === 'complete') init();
+  else window.addEventListener('load', init);
+  window.addEventListener('resize', resizeAll);
 }})();
 </script>"""
 
@@ -115,8 +139,16 @@ def process(path: Path) -> bool:
     if STYLE_MARKER not in text:
         text = text.replace("</head>", STYLE_BLOCK + "\n</head>", 1)
 
-    if RESIZE_MARKER not in text:
-        text = text.replace("</body>", RESIZE_SCRIPT + "\n</body>", 1)
+    # Strip any prior resize block so updates to the script template
+    # actually take effect on re-run.
+    text = re.sub(
+        re.escape(RESIZE_MARKER) + r"\s*<script>.*?</script>",
+        "",
+        text,
+        count=1,
+        flags=re.DOTALL,
+    )
+    text = text.replace("</body>", RESIZE_SCRIPT + "\n</body>", 1)
 
     if text != original:
         path.write_text(text, encoding="utf-8")
