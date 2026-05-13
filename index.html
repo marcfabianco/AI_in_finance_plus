@@ -22,21 +22,29 @@
 
 <body>
   <main>
-    <!-- HERO -->
+    <!-- HERO — split: text + interactive proximity map -->
     <section class="hero" aria-labelledby="hero-title">
-      <div class="hero__inner">
-        <p class="eyebrow reveal" data-reveal-index="0">A Policy Benchmarking Demo</p>
-        <h1 id="hero-title" class="hero__title reveal" data-reveal-index="1">
-          AI in Financial Policy
-        </h1>
-        <p class="hero__lede reveal" data-reveal-index="2">
-          A general inspection of policy attention and narrative on artificial
-          intelligence in international banking regulation and supervision:
-          how attention has evolved, where risks are framed, and where
-          standard-setters diverge from academic literature.
-        </p>
-
-        <p class="scroll-hint reveal" data-reveal-index="3">Scroll</p>
+      <div class="hero__text">
+        <div class="hero__inner">
+          <p class="eyebrow reveal" data-reveal-index="0">A Policy Benchmarking Demo</p>
+          <h1 id="hero-title" class="hero__title reveal" data-reveal-index="1">
+            AI in Financial Policy
+          </h1>
+          <p class="hero__lede reveal" data-reveal-index="2">
+            A general inspection of policy attention and narrative on artificial
+            intelligence in international banking regulation and supervision:
+            how attention has evolved, where risks are framed, and where
+            standard-setters diverge from academic literature.
+          </p>
+          <p class="scroll-hint reveal" data-reveal-index="3">Scroll</p>
+        </div>
+      </div>
+      <div class="hero__map" aria-label="Interactive proximity map of the documents by semantic similarity">
+        <iframe
+          src="assets/figures/stage4_proximity.html"
+          title="Interactive proximity map of the documents by semantic similarity"
+          loading="eager"
+        ></iframe>
       </div>
     </section>
 
