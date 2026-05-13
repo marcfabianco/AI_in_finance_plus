@@ -14,8 +14,13 @@
   background: transparent;
   padding: 0;
   border: 0;
+  margin-inline: auto;
 }
 .figure img { width: 100%; display: block; }
+
+/* Static figures inside a figure-text grid get capped so they sit a
+   touch smaller than the Section 01 interactive charts. */
+.grid-figure-text .figure:not(.figure--interactive) { max-width: 580px; }
 .figure-caption {
   margin-top: 0.75rem;
   font-size: 0.8125rem;
@@ -43,11 +48,11 @@
    oversized. Aspect ratio preserves the native shape. */
 .figure--interactive[data-aspect="bar"] iframe {
   aspect-ratio: 820 / 400;
-  max-width: 560px;
+  max-width: 620px;
 }
 .figure--interactive[data-aspect="pie"] iframe {
   aspect-ratio: 720 / 560;
-  max-width: 420px;
+  max-width: 480px;
 }
 
 /* Methodology arrow link — text-link register, no framed CTA. */
@@ -98,7 +103,7 @@
 
 /* Compact figure variant — caps width and centres in its parent. */
 .figure--compact {
-  max-width: 720px;
+  max-width: 540px;
   margin-inline: auto;
 }
 

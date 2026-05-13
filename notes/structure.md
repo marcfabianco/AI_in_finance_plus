@@ -59,11 +59,9 @@ footnote better: τ is the minimum semantic similarity between a paragraph and t
 (remember here we will have a button to a more detailed technical note)
 
 
-
 ### Does change in vocabulary mean change in risks landscape?
 
 
-The supervisory register dilutes the signal. Most post-2022 GenAI mentions in this corpus are wrapped in regulatory/risk/governance language. The anchors I curated are more "what GenAI is and does" sentences. Semantic distance between "LLMs operate as black-box probability machines…" (anchor-flavoured) and "firms deploying foundation models must establish appropriate model-risk frameworks…" (corpus-flavoured) is real.
 
 ### Risk vs Tool
 
