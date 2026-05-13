@@ -176,6 +176,110 @@
   color: var(--text-muted);
 }
 
+/* Inline arrow link — for "References", "Methodology", and other
+   secondary navigation. Same visual language as .method-button. */
+.arrow-link {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.4em;
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--link);
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid color-mix(in srgb, var(--link) 35%, transparent);
+  padding: 0;
+  transition: border-color 180ms var(--ease-out), gap 180ms var(--ease-out);
+}
+.arrow-link:hover {
+  border-bottom-color: var(--link);
+  gap: 0.6em;
+}
+
+/* Bibliography — academic reference list with hanging indent.
+   Used on /references.html. */
+.reference-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  counter-reset: ref;
+}
+.reference-entry {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text);
+  padding: 1.1rem 0;
+  padding-left: 2.25em;
+  text-indent: -2.25em;        /* hanging indent */
+  border-bottom: 1px solid var(--divider);
+}
+.reference-entry:last-child { border-bottom: 0; }
+.reference-entry .ref-author {
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--text);
+}
+.reference-entry .ref-year {
+  font-family: var(--font-display);
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+.reference-entry .ref-title { font-style: italic; }
+.reference-entry .ref-venue { color: var(--text-secondary); }
+.reference-entry .ref-meta {
+  display: block;
+  margin-top: 0.25em;
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  text-indent: 0;
+}
+
+/* Sub-page header — small back-link strip used on references.html and
+   future methodology notes. */
+.page-header {
+  padding: 1.75rem var(--gutter) 1rem;
+  border-bottom: 1px solid var(--divider);
+}
+.page-header__inner {
+  max-width: 60rem;
+  margin-inline: auto;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.page-header__site {
+  font-family: var(--font-display);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  letter-spacing: 0.01em;
+}
+.page-header__site a {
+  color: inherit;
+  border-bottom: 0;
+}
+.page-header__site a:hover { color: var(--text); }
+
+/* Sub-page main column — narrow, prose-friendly */
+.subpage {
+  max-width: 60rem;
+  margin-inline: auto;
+  padding: 4rem var(--gutter) 6rem;
+}
+.subpage__title {
+  margin: 0 0 0.5em;
+}
+.subpage__lede {
+  font-size: var(--fs-lede);
+  color: var(--text-secondary);
+  max-width: 38em;
+  margin-bottom: 3rem;
+}
+
 /* Scroll-fade reveal */
 .reveal {
   opacity: 0;

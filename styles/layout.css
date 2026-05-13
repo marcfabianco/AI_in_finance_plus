@@ -48,7 +48,16 @@
 @media (min-width: 900px) {
   .hero { grid-template-columns: 42fr 58fr; }
   .hero__text { padding-left: var(--gutter-lg); }
-  .hero__map { min-height: 100vh; border-top: 0; }
+  /* Map stays anchored at top, fixed at 100vh, so it doesn't stretch
+     when the hero text grows past the viewport. */
+  .hero__map {
+    align-self: start;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    min-height: 0;
+    border-top: 0;
+  }
 }
 
 /* Section opener — 100vh title card, just eyebrow + h2 + lede */
