@@ -25,7 +25,7 @@
   --fs-eyebrow:    0.75rem;   /* 12px */
   --fs-body:       1.0625rem; /* 17px */
   --fs-lede:       1.25rem;   /* 20px */
-  --fs-h3:         1.75rem;   /* 28px */
+  --fs-h3:         1.5rem;    /* 24px — sits comfortably under H2 */
   --fs-h2:         2.75rem;   /* 44px */
   --fs-h1:         clamp(3rem, 7vw, 5.5rem);
 

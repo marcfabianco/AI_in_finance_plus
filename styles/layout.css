@@ -46,8 +46,8 @@
    their own figures (no full-viewport pause). */
 .section-opener--flow {
   min-height: auto;
-  padding-top: calc(var(--gutter-lg) * 1.75);
-  padding-bottom: var(--gutter-lg);
+  padding-top: calc(var(--gutter-lg) * 1.25);
+  padding-bottom: calc(var(--gutter-lg) * 0.75);
   display: block;
 }
 .section-opener--flow .section-opener__inner {

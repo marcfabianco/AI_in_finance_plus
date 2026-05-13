@@ -11,11 +11,11 @@
 }
 
 .figure {
-  background: var(--surface);
-  padding: 1.25rem;
-  border: 1px solid var(--divider);
+  background: transparent;
+  padding: 0;
+  border: 0;
 }
-.figure img { width: 100%; }
+.figure img { width: 100%; display: block; }
 .figure-caption {
   margin-top: 0.75rem;
   font-size: 0.8125rem;
@@ -50,21 +50,26 @@
   max-width: 420px;
 }
 
+/* Methodology arrow link — text-link register, no framed CTA. */
 .method-button {
-  display: inline-block;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.4em;
   font-family: var(--font-body);
-  font-size: 0.8125rem;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
   color: var(--link);
-  padding: 0.6em 1.1em;
-  border: 1px solid var(--link);
-  border-bottom: 1px solid var(--link);
   background: transparent;
-  transition: background 180ms var(--ease-out), color 180ms var(--ease-out);
+  border: 0;
+  border-bottom: 1px solid color-mix(in srgb, var(--link) 35%, transparent);
+  padding: 0;
+  transition: border-color 180ms var(--ease-out), gap 180ms var(--ease-out);
 }
-.method-button:hover { background: var(--link); color: var(--bg); }
+.method-button:hover {
+  border-bottom-color: var(--link);
+  gap: 0.6em;
+}
 
 .scroll-hint {
   margin-top: 4rem;
@@ -115,21 +120,19 @@
   padding: 0;
   list-style: none;
   font-family: var(--font-display);
-  font-style: italic;
+  font-style: normal;
   color: var(--text);
-  font-size: 1.0625rem;
-  line-height: 2.1;
+  font-size: 1.125rem;
+  line-height: 1.9;
+  letter-spacing: 0.005em;
 }
 .keyword-list__items li {
   display: inline;
   white-space: nowrap;
 }
 .keyword-list__items li:not(:last-child)::after {
-  content: "·";
+  content: ", ";
   color: var(--text-muted);
-  margin: 0 0.55em;
-  font-style: normal;
-  font-family: var(--font-body);
 }
 
 /* Footnote — small italic muted note. Editorial register. */
@@ -151,7 +154,6 @@
   letter-spacing: var(--tracking-eyebrow);
   text-transform: uppercase;
   color: var(--text-muted);
-  vertical-align: 1px;
 }
 
 /* Scroll-fade reveal */
@@ -173,4 +175,14 @@
   .reveal { opacity: 1; transform: none; transition: none; }
   .scroll-hint::after { animation: none; }
   html { scroll-behavior: auto; }
+}
+
+@media (max-width: 640px) {
+  .keyword-list {
+    padding: 1.75rem var(--gutter);
+  }
+  .keyword-list__items {
+    font-size: 1rem;
+    line-height: 1.85;
+  }
 }
