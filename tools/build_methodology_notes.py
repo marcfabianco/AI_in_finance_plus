@@ -96,6 +96,15 @@ NOTES = [
         "title": "Anchor selection",
         "eyebrow": "Section 02 · Anchor selection",
     },
+    # ---- F2: Section 03 (Attention landscape) ----
+    {
+        "group": "F2",
+        "source": "F2_technical_note.md",
+        "out": "F2/methodology.html",
+        "label": "Methodology",
+        "title": "Attention landscape — methodological note",
+        "eyebrow": "Section 03 · Methodology",
+    },
 ]
 
 # Specific cross-references rewritten in the source markdown before
