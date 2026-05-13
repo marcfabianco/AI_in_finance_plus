@@ -59,7 +59,9 @@ footnote better: τ is the minimum semantic similarity between a paragraph and t
 (remember here we will have a button to a more detailed technical note)
 
 
-### Does change in vocabulary mean change in risks landscape?
+### Attention Landscape
+
+In the years before ChatGPT, the AI policy agenda of these bodies was dominated by consumer protection, data protection, and the broader fintech transformation. After ChatGPT, the balance shifted toward capacity and governance, labour-market exposure, and operational concerns within banks and central banks. New categories also emerged that had no real presence before 2022, including generative AI as a distinct policy object and AI-related financial-system vulnerabilities. The ethics agenda has not disappeared, but it now sits inside a wider frame about how supervisors actually oversee AI use in financial institutions.
 
 
 
