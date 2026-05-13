@@ -270,6 +270,130 @@
   margin-inline: auto;
   padding: 4rem var(--gutter) 6rem;
 }
+.subpage--wide { max-width: 72rem; }
+
+/* Methodology / note body — renders converted markdown.
+   Plays nicely with subpage container. */
+.note-body {
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  color: var(--text);
+}
+.note-body h1 {
+  font-family: var(--font-display);
+  color: var(--title);
+  font-weight: 600;
+  font-size: var(--fs-h2);
+  margin: 0 0 2rem;
+}
+.note-body h2 {
+  font-family: var(--font-display);
+  color: var(--title);
+  font-weight: 500;
+  font-size: 1.75rem;
+  margin: 3rem 0 1rem;
+}
+.note-body h3 {
+  font-family: var(--font-display);
+  color: var(--title);
+  font-weight: 500;
+  font-size: 1.375rem;
+  margin: 2.25rem 0 0.75rem;
+}
+.note-body p { margin: 0 0 1.1em; max-width: 38em; }
+.note-body strong { color: var(--text); font-weight: 600; }
+.note-body em { color: var(--text); }
+.note-body code {
+  font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 0.9em;
+  background: color-mix(in srgb, var(--text-muted) 18%, transparent);
+  padding: 0.1em 0.35em;
+  border-radius: 3px;
+}
+.note-body pre {
+  background: var(--surface);
+  border: 1px solid var(--divider);
+  padding: 1rem 1.25rem;
+  overflow-x: auto;
+  margin: 1.5rem 0;
+  font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 0.875rem;
+  line-height: 1.55;
+  color: var(--text);
+}
+.note-body pre code {
+  background: transparent;
+  padding: 0;
+  border-radius: 0;
+  font-size: inherit;
+}
+.note-body ul, .note-body ol { margin: 0 0 1.1em; padding-left: 1.5em; max-width: 38em; }
+.note-body li { margin-bottom: 0.35em; }
+
+/* Tables in methodology notes — quiet editorial typesetting. */
+.note-body table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.75rem 0 2.25rem;
+  font-size: 0.9375rem;
+  line-height: 1.55;
+}
+.note-body thead th {
+  text-align: left;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.75rem;
+  letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  padding: 0.6rem 0.9rem 0.6rem 0;
+  border-bottom: 1px solid var(--text-muted);
+}
+.note-body thead th:not(:last-child) { padding-right: 1.5rem; }
+.note-body tbody td {
+  padding: 0.75rem 0.9rem 0.75rem 0;
+  border-bottom: 1px solid var(--divider);
+  vertical-align: top;
+  color: var(--text);
+}
+.note-body tbody td:not(:last-child) { padding-right: 1.5rem; }
+.note-body tbody td:first-child { width: 14em; }
+.note-body tbody td:first-child code {
+  background: transparent;
+  padding: 0;
+  color: var(--link);
+  font-weight: 500;
+}
+.note-body tbody tr:last-child td { border-bottom: 0; }
+
+/* Sub-page sub-navigation: small bar of sibling notes. */
+.subnav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin: 0 0 3rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--divider);
+}
+.subnav__item {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--text-secondary);
+  border-bottom: 0;
+  padding-bottom: 2px;
+}
+.subnav__item:hover { color: var(--link); border-bottom: 0; }
+.subnav__item--active { color: var(--link); border-bottom: 1px solid var(--link); }
+
+/* Hero / section button group (3 inline arrow-links under a title) */
+.button-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem 2rem;
+  margin: 0.5rem 0 0;
+}
 .subpage__title {
   margin: 0 0 2.5rem;
 }

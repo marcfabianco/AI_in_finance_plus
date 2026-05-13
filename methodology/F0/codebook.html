@@ -1,0 +1,374 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Codebook — AI in Financial Policy</title>
+  <meta name="description" content="Methodology note: codebook — AI in Financial Policy demo." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="../../styles/tokens.css" />
+  <link rel="stylesheet" href="../../styles/base.css" />
+  <link rel="stylesheet" href="../../styles/layout.css" />
+  <link rel="stylesheet" href="../../styles/components.css" />
+</head>
+
+<body>
+  <header class="page-header">
+    <div class="page-header__inner">
+      <p class="page-header__site"><a href="../../index.html">AI in Financial Policy</a></p>
+      <a class="arrow-link" href="../../index.html" aria-label="Back to the main page">&larr; Back</a>
+    </div>
+  </header>
+
+  <main class="subpage subpage--wide">
+    <p class="eyebrow">Section 01 · Codebook</p>
+    <h1 class="subpage__title">Codebook</h1>
+
+    <nav class="subnav" aria-label="Section 01 methodology notes">
+      <a class="subnav__item" href="methodology.html">Methodology</a>
+      <a class="subnav__item" href="database_architecture.html">Database architecture</a>
+      <a class="subnav__item subnav__item--active" href="codebook.html">Codebook</a>
+    </nav>
+
+    <article class="note-body">
+<p>The codebook is the controlled vocabulary used to code every document in the database. Five fields take values from a closed list. New codes are added only after explicit review, so that the analytical schema remains stable across coders and across batches.</p>
+<h2>1. Document type</h2>
+<p>Each document is assigned one document type. The seven values cover most of the supervisory and academic literature published by the five bodies. A secondary type is recorded only when the primary type cannot stand alone.</p>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>When to apply</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>policy_paper</code></td>
+<td>Standard-setter or international-organisation paper that ends in a policy direction or recommendation. Includes conceptual mapping, cross-jurisdictional comparison, operational toolkits, and executive summaries of policy reports.</td>
+</tr>
+<tr>
+<td><code>academic</code></td>
+<td>Research design with theory, model, or empirical analysis. The primary purpose is to contribute knowledge rather than to direct policy.</td>
+</tr>
+<tr>
+<td><code>stocktake</code></td>
+<td>Structured survey or mapping of what authorities or firms are doing. Primarily descriptive of the state of play across many actors.</td>
+</tr>
+<tr>
+<td><code>assessment_report</code></td>
+<td>Systematic backward-looking review by an institution. Covers self-assessment (annual reports of a body's own activities), country assessment (Article IV reports, FSAPs, country-program reviews), and peer assessment (FATF Mutual Evaluation Reports and analogous reviews against a standard).</td>
+</tr>
+<tr>
+<td><code>standard_guidance</code></td>
+<td>Official rule text or principles intended to be implemented, for example Basel principles, FATF Recommendations, or BCBS standards.</td>
+</tr>
+<tr>
+<td><code>speech_commentary</code></td>
+<td>Speeches, blog posts, op-eds, statements, and secretariat-written records of meetings, plenaries, forums, and consultative events. Brief, position-signalling or event-documenting.</td>
+</tr>
+<tr>
+<td><code>other</code></td>
+<td>Genuinely far from the six above. The notes field must explain why.</td>
+</tr>
+</tbody>
+</table>
+<h2>2. Actor</h2>
+<p>One or more actors are coded per document. The actor codebook captures who the document treats as the relevant population for the AI question at hand. New actor codes require review before being written.</p>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Who</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>regulators_supervisors</code></td>
+<td>Banking regulators and supervisors acting in their supervisory capacity. Includes central banks when the document treats them as supervisors of banks (microprudential or system-wide supervision regimes).</td>
+</tr>
+<tr>
+<td><code>central_banks</code></td>
+<td>Central banks acting in non-supervisory capacities, including monetary policy, market operations, payments operation, financial-stability surveillance qua surveillance, and internal institutional matters (HR, capacity, governance).</td>
+</tr>
+<tr>
+<td><code>financial_institutions</code></td>
+<td>Financial institutions and supervised entities, mostly banks. Boards and senior management fold into this category.</td>
+</tr>
+<tr>
+<td><code>customers_users</code></td>
+<td>Customers, users, and data subjects of financial services.</td>
+</tr>
+<tr>
+<td><code>tech_companies</code></td>
+<td>Technology providers that supply AI infrastructure to financial institutions and authorities, including cloud-service providers, foundation-model providers, specialised AI hardware vendors, and big-tech firms.</td>
+</tr>
+<tr>
+<td><code>competition_authorities</code></td>
+<td>Antitrust and competition authorities when the document addresses them as the regulatory addressee of AI market-structure or concentration concerns.</td>
+</tr>
+<tr>
+<td><code>data_protection_authorities</code></td>
+<td>Data-protection and privacy authorities when the document addresses them as the regulatory addressee of AI data-use, profiling, automated-decisioning, or data-subject-rights concerns.</td>
+</tr>
+<tr>
+<td><code>governments</code></td>
+<td>Governments and public-sector administrators acting in non-financial-supervisory capacities, including line ministries, public-sector units adopting AI for service delivery, tax administration, judicial process, and infrastructure planning.</td>
+</tr>
+<tr>
+<td><code>system</code></td>
+<td>The financial system or the economy as a whole.</td>
+</tr>
+<tr>
+<td><code>other</code></td>
+<td>Anything genuinely unclassified. The notes field must name the actor.</td>
+</tr>
+</tbody>
+</table>
+<h2>3. Problem</h2>
+<p>A list of problem codes is recorded per (document, actor) pair. The list is ordered with the most dominant problem first. Eleven problem codes cover the substantive risks and concerns the documents raise.</p>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>What</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>credit_risk</code></td>
+<td>Default, probability of default, credit-underwriting risks.</td>
+</tr>
+<tr>
+<td><code>market_risk</code></td>
+<td>Trading-book, internal-model approach, market-movement losses.</td>
+</tr>
+<tr>
+<td><code>operational_risk</code></td>
+<td>IT infrastructure, data quality, process failures, system outages.</td>
+</tr>
+<tr>
+<td><code>model_risk</code></td>
+<td>Incorrect model use and AI-specific model-risk-management concerns, including explainability, validation, and compliance.</td>
+</tr>
+<tr>
+<td><code>third_party_risk</code></td>
+<td>Concentration on cloud, foundation-model, or other outsourcing providers.</td>
+</tr>
+<tr>
+<td><code>cyber_data_security</code></td>
+<td>Cyber attacks, model poisoning, data breaches.</td>
+</tr>
+<tr>
+<td><code>systemic_risk</code></td>
+<td>Financial stability, herding, correlation, contagion, deepfake-driven runs.</td>
+</tr>
+<tr>
+<td><code>consumer_data_protection</code></td>
+<td>Bias, discrimination, adverse action, fairness, privacy, and data-subject rights. Typically coded as a secondary problem alongside <code>model_risk</code> when a document raises bias, fairness, explainability, discrimination, or privacy as a substantive concern affecting end-users.</td>
+</tr>
+<tr>
+<td><code>capacity_governance</code></td>
+<td>Institutional capacity gaps other than staff skills, including governance frameworks, board and management oversight, accountability for AI use, budget rigidity, IT legacy, and data infrastructure.</td>
+</tr>
+<tr>
+<td><code>staff_skills</code></td>
+<td>Workforce skills gaps, recruitment, retention, and upskilling of supervisor and central-bank staff for AI adoption. The institution's own people-side capability.</td>
+</tr>
+<tr>
+<td><code>job_displacement</code></td>
+<td>AI's effect on the workforce as a labour-market phenomenon, including task automation, occupational shifts, wage and employment effects, and distributional consequences. Distinct from <code>staff_skills</code>, which is about an institution's own capability.</td>
+</tr>
+</tbody>
+</table>
+<h2>4. Policy area</h2>
+<p>One or more policy areas are recorded per document, each with a dominance rank. The policy area captures the part of the AI-in-finance landscape the document operates in, regardless of which problems it raises.</p>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>What</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>microprudential</code></td>
+<td>Individual firm soundness supervision.</td>
+</tr>
+<tr>
+<td><code>macroprudential</code></td>
+<td>System-wide stability surveillance.</td>
+</tr>
+<tr>
+<td><code>supervisory_process</code></td>
+<td>The supervision-of-banks regime, including supervisory frameworks, capacity, and methods.</td>
+</tr>
+<tr>
+<td><code>central_bank_operations</code></td>
+<td>Central banks' own operational and institutional functions, distinct from supervision of banks.</td>
+</tr>
+<tr>
+<td><code>consumer_protection</code></td>
+<td>The conduct and fairness regime as a whole.</td>
+</tr>
+<tr>
+<td><code>aml_cft</code></td>
+<td>The financial-crime regime.</td>
+</tr>
+<tr>
+<td><code>resolution</code></td>
+<td>Recovery, resolution, and crisis management.</td>
+</tr>
+<tr>
+<td><code>payments</code></td>
+<td>Payments-system oversight.</td>
+</tr>
+<tr>
+<td><code>empirical_evidence</code></td>
+<td>Documents whose primary character is empirical evidence about AI (surveys of attitudes or usage, randomised experiments, observational and econometric studies) that informs policy debates without operating within a regime.</td>
+</tr>
+<tr>
+<td><code>ai_methodology</code></td>
+<td>Documents whose primary character is the development, evaluation, or methodological deployment of AI and ML techniques. The contribution is the method itself.</td>
+</tr>
+<tr>
+<td><code>market_structure</code></td>
+<td>Documents whose primary character is analysis of the AI market structure, value chain, or competition dynamics. Operates upstream of prudential and conduct regimes, in competition-policy territory.</td>
+</tr>
+<tr>
+<td><code>cross_sector</code></td>
+<td>Documents that span multiple application sectors as parallel domains (health, education, finance, agriculture, transport), with finance as one thread among several.</td>
+</tr>
+<tr>
+<td><code>tax_administration</code></td>
+<td>Documents that operate within tax, customs, or revenue administration.</td>
+</tr>
+<tr>
+<td><code>public_sector_ai_adoption</code></td>
+<td>Public-sector adoption of AI for service delivery, government modernisation, and supervisory-adjacent state functions.</td>
+</tr>
+<tr>
+<td><code>other</code></td>
+<td>Anything else genuinely unclassifiable. The notes field must name and explain.</td>
+</tr>
+</tbody>
+</table>
+<h2>5. Sub-area</h2>
+<p>A sub-area code adds tool-level or use-case granularity within a policy area. Sub-areas are grouped by the regime they sit inside. New sub-area codes require review before being written.</p>
+<p><strong>Public-sector adoption</strong></p>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>What</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>suptech</code></td>
+<td>Supervisors' adoption of AI and ML for their own supervisory work, including supervisory matching, AML cross-firm screening, ESG and climate disclosure parsing, regulatory chatbots, and supervisory-document review.</td>
+</tr>
+<tr>
+<td><code>supervisory_capacity_dev</code></td>
+<td>Supervisors' capacity-development for AI, including training programmes, AI competencies, organisational structures, and adoption capacity.</td>
+</tr>
+<tr>
+<td><code>supervisory_mrm</code></td>
+<td>Supervisory expectations on AI model risk management imposed on supervised entities, including explainability, validation, and governance requirements.</td>
+</tr>
+<tr>
+<td><code>cb_analytical_tools</code></td>
+<td>Central banks' use of AI and ML for monetary-policy analysis, communication mapping, sentiment analysis, and NLP on central-bank texts.</td>
+</tr>
+<tr>
+<td><code>statistical_compilation</code></td>
+<td>Central banks' use of AI and ML for official statistics, granular-data integration, nowcasting, and big-data sources for statistical aggregates.</td>
+</tr>
+<tr>
+<td><code>payments_ai_tools</code></td>
+<td>AI and ML applied to payment-system oversight, including real-time gross settlement anomaly detection, AML in correspondent banking, and fraud detection in payment flows.</td>
+</tr>
+<tr>
+<td><code>monetary_policy</code></td>
+<td>The monetary-policy function as a sub-area within central-bank operations, including forecasting, policy-rate transmission, communication, and the inflation-expectations channel.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Firm-level use cases</strong></p>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>What</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>regtech_firms</code></td>
+<td>Financial institutions' use of AI for regulatory compliance and internal risk management, including AML and CFT detection at firms, capital-rules parsing, regulatory reporting automation, and compliance chatbots.</td>
+</tr>
+<tr>
+<td><code>credit_underwriting</code></td>
+<td>AI and ML for credit assessment, scoring, and loan-eligibility decisions at financial institutions.</td>
+</tr>
+<tr>
+<td><code>insurance_underwriting</code></td>
+<td>AI and ML for insurance risk assessment, pricing, and claims processing at insurers.</td>
+</tr>
+<tr>
+<td><code>customer_facing_ai</code></td>
+<td>AI in customer-facing financial services, including chatbots, robo-advising, and customer-service automation.</td>
+</tr>
+<tr>
+<td><code>internal_ops_efficiency</code></td>
+<td>AI for back-office automation, productivity gains, and internal process optimisation at financial institutions.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Macro and cross-cutting</strong></p>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>What</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>macroeconomic_impact</code></td>
+<td>Research on AI's effect on output, inflation, productivity, and labour markets at the economy-wide level.</td>
+</tr>
+<tr>
+<td><code>household_adoption_research</code></td>
+<td>Survey-based empirical research on household and consumer adoption of AI, trust, and perceptions.</td>
+</tr>
+<tr>
+<td><code>ai_market_structure</code></td>
+<td>Analysis of the AI supply chain, vendor concentration, big-tech footprint, and foundation-model market dynamics.</td>
+</tr>
+<tr>
+<td><code>cyber_resilience</code></td>
+<td>AI's role in cyber security and operational resilience, including threat detection, model poisoning, and cryptographic risks.</td>
+</tr>
+</tbody>
+</table>
+<h2>6. Conventions</h2>
+<p>The codebook is closed but extensible. A new code is added only after the coder flags a substantive density of an uncoded term, framing, or actor across multiple documents and the addition is reviewed and approved. Until promotion, novel material lives in the notes field with an explicit flag so that periodic audits can surface candidate codebook gaps.</p>
+<p>The dominance principle governs every coded dimension. The coder records what is dominant in the document rather than every mention. Ranks 1, 2, and 3 are used, capped at three, with ties at rank 1 permitted. Absences are recorded as well, since absence in a body's writing is itself a signal worth keeping.</p>
+<p>Every row carries a notes field with the coder's rationale and a supporting quote from the document. The rationale must be sufficient that an auditor can verify the coding call without re-reading the source.</p>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>Demo — methods preview. Results are illustrative; the methodology is the deliverable.</p>
+    </div>
+  </footer>
+</body>
+</html>
