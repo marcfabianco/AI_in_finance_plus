@@ -27,52 +27,38 @@ This is a Demo just to show the menu of methods and tools used in modern Policy 
 
  (Button to method of how we chose the documents)
 
-### Policy attention
+### Trends in Policy Attention
 
-Non is better but complementary.
+Attention to AI in these documents did not begin with ChatGPT. Documents from 2019 to 2021 already discussed AI and machine learning, often using terms like neural networks, natural language processing, and natural language processing. After ChatGPT, the discussion grew in volume and the vocabulary expanded. Generative AI, large language models, and agentic systems become standard terms in writing from 2023 onward. The interest is older than the language used to describe it.
 
-1 Traditonal methods. Expert select a set of key words. and...
+1  Supervised. Hand-coded methods
 
-This method would say that pre 2023, here was barely attention and jumped. 
-This might tell us more about the change of wording.
+Traditional methods measure attention to a topic by counting how often relevant words appear. The approach requires human expertise to pick the vocabulary, since the count is only as good as the list. For this demo, twenty-three terms were chosen to cover the AI and machine learning vocabulary in use across the period. Each document is then summarised by the number of times these terms appear per thousand words, which makes documents of different length comparable.
+
+(Maybe a nice table or box with the words: artificial intelligence, machine learning, generative AI, GenAI, LLM, large language model, foundation model, ChatGPT, GPT-3, GPT-4, GPT-5, agentic AI, AI agent, deepfake, AI safety, AI alignment, AGI, frontier AI, deep learning, neural network, transformer model, NLP, computer vision)
+
+Before ChatGPT, these terms appear at a modest rate. The dominant ones in pre-2022 writing are machine learning, neural networks, and natural language processing. From 2023 onward the rate rises sharply and remains at the higher level. The post-ChatGPT years bring new terms into common use, including generative AI, large language models, agentic systems, and ChatGPT itself.
 
 FIGURE: 
 /Users/marcosfabian/Documents/Documents/GitHub/AI_in_finance/Demo/stage_2/figures/F1/F1a_traditional.png
 
-2 Modern methods
+2 Semi-supervised. Semantic similarity method
 
+Traditional methods are useful as a first measure but can mask real attention by depending entirely on a fixed list of words. A semi-supervised method based on transformer models compares each paragraph to a curated set of AI reference sentences and scores the similarity in meaning rather than wording. By this measure, attention to artificial intelligence and machine learning rises steadily across the period, without the sudden jump seen in the keyword count.
 
-Here i present a semi supervised
-
-Here we are interested in sematic proximity. Not only the strict word coding matters, but semantic proximity.
-
-Methods based on transformers shows that attention on AI matters was there and has steadily increased over time. 
-
-The figure shows, ...
-
-(we might include a interactive version of F1_paragraph_joint.png and F1_sentence_joint.png)
-
-where τ is the minimum semantic similarity between a paragraph and the closest anchor. Different sensitivities suggest the same trend.
-
-We can see pre 2022 these matters were discussed and increasing. Standard errors measure how precise... And we can see that after 2022 standard errors also reduced, meaning a tighter attention. Early attention was more dispersed , now seems more focused. 
-
-
-Cosine runs 0 (totally unrelated) to 1 (literally the same sentence). For the BGE embedding model we're using (HuggingFace card here — it's trained for retrieval), the typical range is narrow. Concrete examples on this corpus:
-
-Attention has been there, vocabulary has expanded.
-
-Trend but also we can interpret standard errors what does it mean?
-
-Document-cluster bootstrap, 1,000 iterations Cameron-Gelbach-Miller (2008) 
+The shaded bands around the line are bootstrap confidence intervals which quantify how precise each year's estimate is. They also help test whether differences between periods are statistically meaningful, and whether topical dispersion narrows or widens over time. A preliminary look at this figure suggests the bands are tighter from 2023 onward, which might reflect closer semantic similarity in the topics discussed post-ChatGPT. The same overall conclusion holds whether the unit is the paragraph or the sentence.
 
 FIGURES: 
+
+footnote better: τ is the minimum semantic similarity between a paragraph and the closest anchor. Different sensitivities suggest the same trend.
 
 /Users/marcosfabian/Documents/Documents/GitHub/AI_in_finance/Demo/stage_2/figures/F1/F1_paragraph_joint.png 
 
 /Users/marcosfabian/Documents/Documents/GitHub/AI_in_finance/Demo/stage_2/figures/F1/F1_sentence_joint.png
 
+(remember here we will have a button to a more detailed technical note)
 
-(remember here we will have a button to a more detailed technical note, here just the intutitions)
+
 
 ### Does change in vocabulary mean change in risks landscape?
 

@@ -124,84 +124,156 @@
     </section>
 
     <!-- SECTION 2 OPENER -->
-    <section class="section-opener section-opener--tinted" aria-labelledby="attention-title">
+    <section class="section-opener section-opener--flow section-opener--tinted" aria-labelledby="attention-title">
       <div class="section-opener__inner">
         <h2 id="attention-title" class="section-opener__title reveal" data-reveal-index="0">
-          Policy attention to AI
+          Trends in policy attention
         </h2>
-        <p class="section-opener__lede reveal" data-reveal-index="1">
-          Two complementary readings of the same documents — one counts
-          words, the other reads meaning.
+        <p class="section-opener__lede section-opener__lede--wide reveal" data-reveal-index="1">
+          Attention to AI in these documents did not begin with ChatGPT.
+          Documents from 2019 to 2021 already discussed AI and machine
+          learning, often using terms like neural networks, natural language
+          processing, and natural language processing. After ChatGPT, the
+          discussion grew in volume and the vocabulary expanded. Generative
+          AI, large language models, and agentic systems become standard
+          terms in writing from 2023 onward. The interest is older than the
+          language used to describe it.
         </p>
       </div>
     </section>
 
-    <!-- SECTION 2 BODY — TRADITIONAL -->
-    <section class="section-body">
+    <!-- SECTION 2 BODY — METHOD 1: SUPERVISED -->
+    <section class="section-body section-body--tight">
       <div class="section-body__inner">
         <div class="grid-figure-text">
           <figure class="figure reveal" data-reveal-index="0">
-            <img src="assets/figures/F1a_traditional.png" alt="Yearly keyword density of AI-related terms per 1,000 words across the documents, flat pre-2022, sharp jump from 2023 onward." />
+            <img src="assets/figures/F1a_traditional.png" alt="Weighted yearly keyword density per 1,000 words across the documents, flat pre-2022, sharp jump from 2023 onward." />
             <figcaption class="figure-caption">
-              Traditional method — weighted keyword density per 1,000 words,
-              Tier 1 (GenAI vocabulary) weighted twice Tier 2 (classic AI/ML).
+              Weighted keyword density per 1,000 words. Tier 1 (GenAI
+              vocabulary) weighted twice Tier 2 (classic AI / ML).
             </figcaption>
           </figure>
           <div class="prose reveal" data-reveal-index="1">
-            <h3>1. Traditional reading</h3>
+            <h3>1 — Supervised. Hand-coded methods</h3>
             <p>
-              Experts pick a list of keywords and count how often they appear.
-              Across these documents, the keyword method tells a sharp story:
-              negligible attention pre-2022, then a jump from 2023 onward.
+              Traditional methods measure attention to a topic by counting
+              how often relevant words appear. The approach requires human
+              expertise to pick the vocabulary, since the count is only as
+              good as the list. For this demo, twenty-three terms were
+              chosen to cover the AI and machine learning vocabulary in use
+              across the period. Each document is then summarised by the
+              number of times these terms appear per thousand words, which
+              makes documents of different length comparable.
             </p>
             <p>
-              The catch: this reading captures a <em>vocabulary shift</em> more
-              than an attention shift. Tier 1 GenAI terms — "foundation model,"
-              "large language model," "GenAI" — simply did not exist as a
-              regulator's vocabulary before 2022.
-            </p>
-            <p style="margin-top: 1.5rem;">
-              <a class="method-button" href="#" aria-label="Open the methodology note for the traditional keyword method">
-                Methodology &rarr;
-              </a>
+              Before ChatGPT, these terms appear at a modest rate. The
+              dominant ones in pre-2022 writing are machine learning, neural
+              networks, and natural language processing. From 2023 onward
+              the rate rises sharply and remains at the higher level. The
+              post-ChatGPT years bring new terms into common use, including
+              generative AI, large language models, agentic systems, and
+              ChatGPT itself.
             </p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- SECTION 2 BODY — MODERN -->
+    <!-- KEYWORD VOCABULARY BAND -->
+    <section class="section-body section-body--tight">
+      <div class="section-body__inner">
+        <aside class="keyword-list reveal" data-reveal-index="0" aria-label="The twenty-three keyword terms">
+          <p class="keyword-list__label eyebrow">The twenty-three terms</p>
+          <ul class="keyword-list__items">
+            <li>artificial intelligence</li>
+            <li>machine learning</li>
+            <li>generative AI</li>
+            <li>GenAI</li>
+            <li>LLM</li>
+            <li>large language model</li>
+            <li>foundation model</li>
+            <li>ChatGPT</li>
+            <li>GPT-3</li>
+            <li>GPT-4</li>
+            <li>GPT-5</li>
+            <li>agentic AI</li>
+            <li>AI agent</li>
+            <li>deepfake</li>
+            <li>AI safety</li>
+            <li>AI alignment</li>
+            <li>AGI</li>
+            <li>frontier AI</li>
+            <li>deep learning</li>
+            <li>neural network</li>
+            <li>transformer model</li>
+            <li>NLP</li>
+            <li>computer vision</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <!-- SECTION 2 BODY — METHOD 2: SEMI-SUPERVISED -->
     <section class="section-body">
       <div class="section-body__inner">
         <div class="grid-figure-text grid-figure-text--reverse">
           <figure class="figure reveal" data-reveal-index="0">
-            <img src="assets/figures/F1_paragraph_joint.png" alt="Yearly share of paragraphs whose semantic similarity to AI anchor concepts exceeds three thresholds (0.50, 0.55, 0.60). Attention rises from 11% in 2019 to roughly 45% by 2025, with widening then tightening confidence bands." />
+            <img src="assets/figures/F1_paragraph_joint.png" alt="Yearly share of paragraphs whose semantic similarity to AI reference sentences exceeds three sensitivity thresholds, with bootstrap confidence bands." />
             <figcaption class="figure-caption">
-              Modern method — share of paragraphs whose semantic similarity
-              to AI anchors clears three sensitivity thresholds (τ).
-              Confidence bands from doc-cluster bootstrap, 10,000 iterations.
+              Share of paragraphs above the AI similarity threshold τ, with
+              bootstrap confidence bands (10,000 iterations, clustered by
+              document).
             </figcaption>
           </figure>
           <div class="prose reveal" data-reveal-index="1">
-            <h3>2. Semantic reading</h3>
+            <h3>2 — Semi-supervised. Semantic similarity method</h3>
             <p>
-              Transformer embeddings score every paragraph by its semantic
-              proximity to a curated set of AI "anchor" sentences. The story
-              changes: AI-adjacent attention was already substantial before
-              the GenAI wave, and rose steadily.
+              Traditional methods are useful as a first measure but can mask
+              real attention by depending entirely on a fixed list of words.
+              A semi-supervised method based on transformer models compares
+              each paragraph to a curated set of AI reference sentences and
+              scores the similarity in meaning rather than wording. By this
+              measure, attention to artificial intelligence and machine
+              learning rises steadily across the period, without the sudden
+              jump seen in the keyword count.
             </p>
             <p>
-              Robust across three sensitivity thresholds. The tightening of
-              the confidence band after 2022 suggests attention has become
-              more focused — earlier years were dispersed across many framings.
-            </p>
-            <p style="margin-top: 1.5rem;">
-              <a class="method-button" href="#" aria-label="Open the methodology note for the semantic method">
-                Methodology &rarr;
-              </a>
+              The shaded bands around the line are bootstrap confidence
+              intervals which quantify how precise each year's estimate is.
+              They also help test whether differences between periods are
+              statistically meaningful, and whether topical dispersion
+              narrows or widens over time. A preliminary look at this figure
+              suggests the bands are tighter from 2023 onward, which might
+              reflect closer semantic similarity in the topics discussed
+              post-ChatGPT. The same overall conclusion holds whether the
+              unit is the paragraph or the sentence.
             </p>
           </div>
         </div>
+      </div>
+    </section>
+
+    <!-- COMPANION SENTENCE-UNIT FIGURE + FOOTNOTE + METHODOLOGY -->
+    <section class="section-body section-body--tight">
+      <div class="section-body__inner">
+        <figure class="figure figure--compact reveal" data-reveal-index="0">
+          <img src="assets/figures/F1_sentence_joint.png" alt="Same series at the sentence level, showing the same upward trend in semantic similarity to AI reference sentences." />
+          <figcaption class="figure-caption">
+            Same series at the sentence level. The trend holds.
+          </figcaption>
+        </figure>
+
+        <p class="footnote reveal" data-reveal-index="1">
+          τ is the minimum semantic similarity between a paragraph (or
+          sentence) and the closest anchor. Different sensitivities suggest
+          the same trend.
+        </p>
+
+        <p class="reveal" data-reveal-index="2" style="margin-top: 2rem; text-align: center;">
+          <a class="method-button" href="#" aria-label="Open the methodology note for the semantic similarity method">
+            Methodology &rarr;
+          </a>
+        </p>
       </div>
     </section>
   </main>

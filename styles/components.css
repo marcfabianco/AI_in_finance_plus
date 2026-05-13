@@ -91,6 +91,69 @@
   100% { transform: scaleY(0.3); opacity: 0.4; }
 }
 
+/* Compact figure variant — caps width and centres in its parent. */
+.figure--compact {
+  max-width: 720px;
+  margin-inline: auto;
+}
+
+/* Keyword list — quiet editorial band with the vocabulary. */
+.keyword-list {
+  max-width: 60rem;
+  margin: 1rem auto 2rem;
+  padding: 2.5rem var(--gutter);
+  border-top: 1px solid var(--divider);
+  border-bottom: 1px solid var(--divider);
+  text-align: center;
+}
+.keyword-list__label {
+  display: block;
+  margin: 0 0 1.25rem;
+}
+.keyword-list__items {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-family: var(--font-display);
+  font-style: italic;
+  color: var(--text);
+  font-size: 1.0625rem;
+  line-height: 2.1;
+}
+.keyword-list__items li {
+  display: inline;
+  white-space: nowrap;
+}
+.keyword-list__items li:not(:last-child)::after {
+  content: "·";
+  color: var(--text-muted);
+  margin: 0 0.55em;
+  font-style: normal;
+  font-family: var(--font-body);
+}
+
+/* Footnote — small italic muted note. Editorial register. */
+.footnote {
+  margin: 2rem auto 0;
+  max-width: 44em;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  font-style: italic;
+  line-height: 1.55;
+}
+.footnote::before {
+  content: "Note.";
+  display: inline-block;
+  margin-right: 0.55em;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 0.7rem;
+  letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase;
+  color: var(--text-muted);
+  vertical-align: 1px;
+}
+
 /* Scroll-fade reveal */
 .reveal {
   opacity: 0;
