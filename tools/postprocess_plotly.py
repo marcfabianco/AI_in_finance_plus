@@ -36,12 +36,45 @@ BG_REPLACEMENTS = [
     (r'"plot_bgcolor":"white"',    '"plot_bgcolor":"rgba(0,0,0,0)"'),
 ]
 
+# Strip the layout-level fixed pixel width/height so the chart sizes to its
+# container. Matches `,"width":N` / `,"height":N` only when N is the known
+# chart-canvas size (3+ digits), to avoid clobbering trace-level widths
+# like `"width":0.7` (bar-width fraction).
+LAYOUT_DIM_RES = [
+    re.compile(r',"width":\d{3,}(?=[,}])'),
+    re.compile(r',"height":\d{3,}(?=[,}])'),
+]
+
+# Inject autosize:true into the layout if missing. Idempotent — guarded by
+# the check below.
+AUTOSIZE_ANCHOR_RE = re.compile(r'"paper_bgcolor":"rgba\(0,0,0,0\)"')
+
 # Replace any fixed pixel-size on the Plotly graph div with 100% / 100%.
 DIV_SIZE_RE = re.compile(
     r'(<div id="[^"]+" class="plotly-graph-div" style=")'
     r'height:\d+px;\s*width:\d+px;'
     r'(")'
 )
+
+# Forces a resize after window load, in case the chart was rendered before
+# the iframe knew its final size.
+RESIZE_MARKER = "<!-- ai-finance-plus-resize -->"
+RESIZE_SCRIPT = f"""{RESIZE_MARKER}
+<script>
+(function() {{
+  function resize() {{
+    var divs = document.querySelectorAll('.plotly-graph-div');
+    if (window.Plotly && divs.length) {{
+      divs.forEach(function(d) {{
+        try {{ window.Plotly.Plots.resize(d); }} catch (e) {{}}
+      }});
+    }}
+  }}
+  if (document.readyState === 'complete') resize();
+  else window.addEventListener('load', resize);
+  window.addEventListener('resize', resize);
+}})();
+</script>"""
 
 # A minimal style block that makes the iframe contents fill the frame and
 # kill the default body margin. Marker comment makes the script idempotent.
@@ -67,10 +100,23 @@ def process(path: Path) -> bool:
     for pat, repl in BG_REPLACEMENTS:
         text = re.sub(pat, repl, text)
 
+    for rx in LAYOUT_DIM_RES:
+        text = rx.sub("", text)
+
+    if '"autosize":true' not in text:
+        text = AUTOSIZE_ANCHOR_RE.sub(
+            '"autosize":true,"paper_bgcolor":"rgba(0,0,0,0)"',
+            text,
+            count=1,
+        )
+
     text = DIV_SIZE_RE.sub(r'\1height:100%; width:100%;\2', text)
 
     if STYLE_MARKER not in text:
         text = text.replace("</head>", STYLE_BLOCK + "\n</head>", 1)
+
+    if RESIZE_MARKER not in text:
+        text = text.replace("</body>", RESIZE_SCRIPT + "\n</body>", 1)
 
     if text != original:
         path.write_text(text, encoding="utf-8")

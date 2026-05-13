@@ -37,9 +37,18 @@
   border: 0;
   display: block;
   background: transparent;
+  margin-inline: auto;
 }
-.figure--interactive[data-aspect="bar"] iframe { aspect-ratio: 820 / 400; }
-.figure--interactive[data-aspect="pie"] iframe { aspect-ratio: 720 / 560; }
+/* Cap chart canvas size so wide grid columns don't make charts feel
+   oversized. Aspect ratio preserves the native shape. */
+.figure--interactive[data-aspect="bar"] iframe {
+  aspect-ratio: 820 / 400;
+  max-width: 560px;
+}
+.figure--interactive[data-aspect="pie"] iframe {
+  aspect-ratio: 720 / 560;
+  max-width: 420px;
+}
 
 .method-button {
   display: inline-block;
