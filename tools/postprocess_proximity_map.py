@@ -27,30 +27,24 @@ MAP_PATH = ROOT / "assets" / "figures" / "stage4_proximity.html"
 STYLE_MARKER = "<!-- ai-finance-plus-map-style -->"
 STYLE_BLOCK = f"""{STYLE_MARKER}
 <style>
-  html, body {{ margin: 0; padding: 0; height: 100%; background: transparent; overflow: hidden; }}
-  /* Bootstrap .card wrapper from pyvis — stretch to viewport. */
-  body > .card, .card {{
-    height: 100% !important;
-    width: 100% !important;
+  html, body {{ margin: 0; padding: 0; height: 100%; background: transparent; }}
+  /* Hide the pyvis loading bar entirely — we never want to show it. */
+  #loadingBar, #bar, #border, #text {{ display: none !important; }}
+  /* Strip the lightgray border on the network canvas — clashes with
+     the warm-gray page background. */
+  #mynetwork {{
     border: 0 !important;
     background: transparent !important;
-    display: flex !important;
-    flex-direction: column !important;
   }}
-  .card-header, .card-footer {{ flex: 0 0 auto; }}
-  /* The pyvis-injected loading bar is anchored to 780px — neutralise. */
-  #loadingBar {{ height: 100% !important; }}
-  /* The network canvas itself fills whatever container it sits in. */
-  #mynetwork, .card-body {{
+  /* Bootstrap card wrapper from pyvis: drop the white box + shadow + border. */
+  .card, .card-body {{
     border: 0 !important;
-    width: 100% !important;
-    height: 100% !important;
-    flex: 1 1 auto !important;
     background: transparent !important;
+    box-shadow: none !important;
     padding: 0 !important;
   }}
-  /* center wrapper if present */
-  body > center, center {{ display: block; width: 100%; height: 100%; }}
+  /* Center wrapper if present */
+  body > center, center {{ display: block; }}
 </style>"""
 
 FIT_MARKER = "<!-- ai-finance-plus-map-fit -->"
