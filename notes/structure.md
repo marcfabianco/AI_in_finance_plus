@@ -63,7 +63,23 @@ footnote better: τ is the minimum semantic similarity between a paragraph and t
 
 In the years before ChatGPT, the AI policy agenda of these bodies was dominated by consumer protection, data protection, and the broader fintech transformation. After ChatGPT, the balance shifted toward capacity and governance, labour-market exposure, and operational concerns within banks and central banks. New categories also emerged that had no real presence before 2022, including generative AI as a distinct policy object and AI-related financial-system vulnerabilities. The ethics agenda has not disappeared, but it now sits inside a wider frame about how supervisors actually oversee AI use in financial institutions.
 
+1 Hand-coded method 
 
+Hand-coded methods measure attention by having experts read each document and tag the problems it discusses. It is the slowest method, but also the most accurate, since every label is set by a trained reader rather than an algorithm. For this demo, eleven problem categories were defined in advance and applied across the database. The figure shows the seven that draw the most attention, with the share of attention computed for the periods before and after ChatGPT.
+
+The largest change is in consumer and data protection, which fell from roughly 29 % of attention before ChatGPT to 12 % afte (strange but maybe is my expertise in coding these issues). Capacity and governance moved in the opposite direction, rising from 20 % to 32 % and becoming the top category. Job displacement also rose sharply, from 7 % to 19 %. Model risk, cyber security, and operational risk remained relatively stable.
+
+Figure: /Users/marcosfabian/Documents/Documents/GitHub/AI_in_finance/Demo/stage_2/figures/F2/F2_dumbbell_codebook.html
+
+2 Semi-supervised method 
+
+Expert-coded methods, though robust, can mask topics that fall outside the categories the coder set in advance. A semi-supervised method addresses this by letting the data suggest groups of its own, while still using the hand-coded categories as a starting point. Each paragraph in the database is converted into a vector that captures its meaning, and paragraphs with semantic similarity  end up close to one another. The clusters that emerge can then point a supervisor toward directions worth a closer look.
+
+The figure shows categories the codebook did not anticipate. The most salient pattern is that AI itself becomes the object of governance discussions, separated from the broader fintech framing that contained it before 2022. Around it, supervisors begin to build new oversight infrastructure for measuring exposure, monitoring systemic risk, and reporting incidents. In summary, these point to AI becoming a regulated domain in its own right, rather than a sub-topic within general fintech discussions.
+
+/Users/marcosfabian/Documents/Documents/GitHub/AI_in_finance/Demo/stage_2/figures/F2/F2_cloud_B_bubblemap.html
+
+(Button Methodology)
 
 ### Risk vs Tool
 

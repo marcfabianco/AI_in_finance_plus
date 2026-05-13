@@ -60,6 +60,15 @@
 .figure--interactive[data-aspect="pie"] iframe {
   aspect-ratio: 720 / 560;
 }
+/* F2 dumbbell — wide horizontal comparison; fills column. */
+.figure--interactive[data-aspect="dumbbell"] iframe {
+  aspect-ratio: 900 / 520;
+}
+/* F2 bubble map — wide canvas; benefits from breaking out of the grid
+   to a wider container (handled inline at the section level). */
+.figure--interactive[data-aspect="bubblemap"] iframe {
+  aspect-ratio: 1200 / 580;
+}
 
 /* Methodology arrow link — text-link register, no framed CTA. */
 .method-button {
