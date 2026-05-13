@@ -44,6 +44,15 @@
   display: block;
   background: transparent;
 }
+@media (min-width: 900px) {
+  /* Pull the map down from the top edge so it doesn't sit flush with
+     the viewport top; keep it flush with the text column on the left. */
+  .hero__map iframe {
+    inset: var(--gutter-lg) var(--gutter) var(--gutter) 0;
+    width: auto;
+    height: auto;
+  }
+}
 
 @media (min-width: 900px) {
   .hero { grid-template-columns: 42fr 58fr; }

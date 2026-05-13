@@ -97,6 +97,11 @@ def process(path: Path) -> bool:
         flags=re.DOTALL,
     )
 
+    # Disable scroll-wheel zoom so the map doesn't hijack the page scroll.
+    # Panning (drag) and node-drag stay enabled.
+    text = text.replace('"zoomView": true', '"zoomView": false')
+    text = text.replace('"zoomView":true', '"zoomView":false')
+
     # Inject style override at end of <head>.
     if "</head>" in text:
         text = text.replace("</head>", STYLE_BLOCK + "\n</head>", 1)

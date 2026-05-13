@@ -370,6 +370,7 @@ function highlightFilter(filter) {
 
 
 
+
 <!-- ai-finance-plus-map-style -->
 <style>
   html, body { margin: 0; padding: 0; height: 100%; background: transparent; }
@@ -454,7 +455,7 @@ function highlightFilter(filter) {
                   // adding nodes and edges to the graph
                   data = {nodes: nodes, edges: edges};
 
-                  var options = {"physics": {"enabled": true, "solver": "barnesHut", "barnesHut": {"gravitationalConstant": -2200, "centralGravity": 0.1, "springLength": 130, "springConstant": 0.06, "damping": 0.55, "avoidOverlap": 0.2}, "stabilization": {"enabled": true, "iterations": 600, "updateInterval": 25, "fit": true}}, "interaction": {"hover": true, "tooltipDelay": 80, "dragNodes": true, "zoomView": true}, "nodes": {"shape": "dot", "shadow": false}, "edges": {"shadow": false, "smooth": false}};
+                  var options = {"physics": {"enabled": true, "solver": "barnesHut", "barnesHut": {"gravitationalConstant": -2200, "centralGravity": 0.1, "springLength": 130, "springConstant": 0.06, "damping": 0.55, "avoidOverlap": 0.2}, "stabilization": {"enabled": true, "iterations": 600, "updateInterval": 25, "fit": true}}, "interaction": {"hover": true, "tooltipDelay": 80, "dragNodes": true, "zoomView": false}, "nodes": {"shape": "dot", "shadow": false}, "edges": {"shadow": false, "smooth": false}};
 
                   
 
@@ -544,6 +545,7 @@ function highlightFilter(filter) {
   }, 100);
 })();
 </script>
+
 
 
 

@@ -271,7 +271,11 @@
   padding: 4rem var(--gutter) 6rem;
 }
 .subpage__title {
-  margin: 0 0 0.5em;
+  margin: 0 0 2.5rem;
+}
+.subpage__title + .reference-list,
+.subpage__title + .subpage__lede {
+  margin-top: 0;
 }
 .subpage__lede {
   font-size: var(--fs-lede);
