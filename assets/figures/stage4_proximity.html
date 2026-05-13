@@ -367,6 +367,34 @@ function highlightFilter(filter) {
       font-size: 11px;
   }
 </style>
+
+<!-- ai-finance-plus-map-style -->
+<style>
+  html, body { margin: 0; padding: 0; height: 100%; background: transparent; overflow: hidden; }
+  /* Bootstrap .card wrapper from pyvis — stretch to viewport. */
+  body > .card, .card {
+    height: 100% !important;
+    width: 100% !important;
+    border: 0 !important;
+    background: transparent !important;
+    display: flex !important;
+    flex-direction: column !important;
+  }
+  .card-header, .card-footer { flex: 0 0 auto; }
+  /* The pyvis-injected loading bar is anchored to 780px — neutralise. */
+  #loadingBar { height: 100% !important; }
+  /* The network canvas itself fills whatever container it sits in. */
+  #mynetwork, .card-body {
+    border: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    flex: 1 1 auto !important;
+    background: transparent !important;
+    padding: 0 !important;
+  }
+  /* center wrapper if present */
+  body > center, center { display: block; width: 100%; height: 100%; }
+</style>
 </head>
 
 
@@ -518,6 +546,33 @@ function highlightFilter(filter) {
       clearInterval(t);
     }
   }, 100);
+})();
+</script>
+
+<!-- ai-finance-plus-map-fit -->
+<script>
+(function() {
+  function safeFit() {
+    if (typeof network === 'undefined' || !network || !network.fit) return;
+    try { network.fit({ animation: false }); } catch (e) {}
+  }
+
+  function attach() {
+    if (typeof network === 'undefined' || !network) {
+      setTimeout(attach, 100);
+      return;
+    }
+    network.once('stabilizationIterationsDone', function() { safeFit(); });
+    if (typeof network.redraw === 'function') {
+      // First-paint fallback (in case stabilization fired before this attached).
+      setTimeout(safeFit, 400);
+      setTimeout(safeFit, 1200);
+    }
+    window.addEventListener('resize', safeFit);
+  }
+
+  if (document.readyState === 'complete') attach();
+  else window.addEventListener('load', attach);
 })();
 </script>
 </body>
