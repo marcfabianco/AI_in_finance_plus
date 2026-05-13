@@ -10,8 +10,9 @@ Institutional. Conservative. Supervisor-readable. Quiet surfaces; color earns at
 **Pattern: cinematic openers + natural-flow content** (NYT visual stories / Stripe docs / Pudding register).
 
 - **Hero**: 100vh. Title, eyebrow, scroll hint. Scroll-fade reveal on entry.
-- **Section openers** (each H2): 100vh "title card" — eyebrow + heading + 1–2 line lede only. Gives the panel rhythm. Fades in on entry.
-- **Section body**: natural height, flows after the opener. Two-column grid (figure 7 / text 5, or 6 / 6) on wide; stacks on narrow.
+- **Section openers** (each H2): 100vh "title card" — heading + 1–2 line lede. Gives the panel rhythm. Fades in on entry.
+- **Flow-variant opener** (`.section-opener--flow`): use when the opener carries a dense paragraph and leads straight into its own figures. Drops the 100vh; flows naturally into the body so there is no dead viewport between text and figure.
+- **Section body**: natural height, flows after the opener. Two-column grid (figure 7 / text 5, or 6 / 6) on wide; stacks on narrow. Container max-width 84rem.
 - **Figure-led sub-sections**: near-full-viewport. Figure dominant, short paragraph + caption beside.
 - **No scroll-snap.** Snap fights long-form reading and accessibility. Rhythm comes from the 100vh openers, not enforced snapping.
 - **Mobile**: all grids collapse to single column; 100vh openers stay 100vh.
@@ -64,11 +65,12 @@ Institutional. Conservative. Supervisor-readable. Quiet surfaces; color earns at
 | Reference / baseline | `#A8A6A0` dashed |
 | Highlight band (rare)| `#F5D0CC` @ 40% |
 
-- Chart background: `#FFFFFF` or transparent. Never page gray.
+- Chart background: **transparent** preferred (charts sit directly on the page without a white card). White card reserved for static raster figures that need framing.
 - Axis text: `#2A2A2A`, sans-serif, ≤ 12px.
 - Gridlines: `#A8A6A0` @ 20%.
 - Chart title: terracotta, serif, weight 600.
 - Caption: warm gray, italic, 13px.
+- Interactive Plotly HTMLs are post-processed by `tools/postprocess_plotly.py` to enforce transparent paper/plot backgrounds and responsive sizing inside iframes.
 
 ## Typography
 

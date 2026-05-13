@@ -35,12 +35,13 @@
           how attention has evolved, where risks are framed, and where
           standard-setters diverge from academic literature.
         </p>
+
         <p class="scroll-hint reveal" data-reveal-index="3">Scroll</p>
       </div>
     </section>
 
-    <!-- SECTION 1 OPENER -->
-    <section class="section-opener" aria-labelledby="scope-title">
+    <!-- SECTION 1 OPENER — natural-flow (leads directly into its figures) -->
+    <section class="section-opener section-opener--flow" aria-labelledby="scope-title">
       <div class="section-opener__inner">
         <h2 id="scope-title" class="section-opener__title reveal" data-reveal-index="0">
           Scope and data collection
@@ -60,7 +61,7 @@
     </section>
 
     <!-- SECTION 1 BODY — DOCS PER YEAR -->
-    <section class="section-body">
+    <section class="section-body section-body--tight">
       <div class="section-body__inner">
         <div class="grid-figure-text">
           <figure class="figure figure--interactive reveal" data-reveal-index="0" data-aspect="bar">
@@ -95,11 +96,11 @@
           <figure class="figure figure--interactive reveal" data-reveal-index="0" data-aspect="pie">
             <iframe
               src="assets/figures/F0_doc_type_pie.html"
-              title="Share of documents by type across the corpus"
+              title="Share of documents by type across the database"
               loading="lazy"
             ></iframe>
             <figcaption class="figure-caption">
-              Composition of the corpus by document type.
+              Composition of the database by document type.
             </figcaption>
           </figure>
           <div class="prose reveal" data-reveal-index="1">
@@ -129,8 +130,8 @@
           Policy attention to AI
         </h2>
         <p class="section-opener__lede reveal" data-reveal-index="1">
-          Two complementary readings of the same corpus — one counts words,
-          the other reads meaning.
+          Two complementary readings of the same documents — one counts
+          words, the other reads meaning.
         </p>
       </div>
     </section>
@@ -140,7 +141,7 @@
       <div class="section-body__inner">
         <div class="grid-figure-text">
           <figure class="figure reveal" data-reveal-index="0">
-            <img src="assets/figures/F1a_traditional.png" alt="Yearly keyword density of AI-related terms per 1,000 words in the corpus, flat pre-2022, sharp jump from 2023 onward." />
+            <img src="assets/figures/F1a_traditional.png" alt="Yearly keyword density of AI-related terms per 1,000 words across the documents, flat pre-2022, sharp jump from 2023 onward." />
             <figcaption class="figure-caption">
               Traditional method — weighted keyword density per 1,000 words,
               Tier 1 (GenAI vocabulary) weighted twice Tier 2 (classic AI/ML).
@@ -150,7 +151,7 @@
             <h3>1. Traditional reading</h3>
             <p>
               Experts pick a list of keywords and count how often they appear.
-              On this corpus, the keyword method tells a sharp story:
+              Across these documents, the keyword method tells a sharp story:
               negligible attention pre-2022, then a jump from 2023 onward.
             </p>
             <p>

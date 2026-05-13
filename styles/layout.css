@@ -42,10 +42,24 @@
 /* Alternate section opener tint for rhythm (use sparingly) */
 .section-opener--tinted { background: var(--bg-tint-darker); }
 
+/* Flow variant — natural height, for openers that lead directly into
+   their own figures (no full-viewport pause). */
+.section-opener--flow {
+  min-height: auto;
+  padding-top: calc(var(--gutter-lg) * 1.75);
+  padding-bottom: var(--gutter-lg);
+  display: block;
+}
+.section-opener--flow .section-opener__inner {
+  margin-inline: auto;
+  max-width: 56rem;
+}
+
 /* Section body — natural height, flows after the opener */
 .section-body {
   padding: var(--gutter-lg) var(--gutter);
 }
+.section-body--tight { padding-top: calc(var(--gutter-lg) / 2); }
 .section-body__inner {
   max-width: var(--container-max);
   margin-inline: auto;
