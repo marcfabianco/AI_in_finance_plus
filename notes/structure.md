@@ -16,14 +16,16 @@ Thoruhout this demo, you will find buttons that ake you to a more tehcnical docu
 
 This is a Demo just to show the menu of methods and tools used in modern Policy Analysis techniques. Results here must not be interpreted as hard truths, althoug, the methodology followed is solid, etc,  these results must be benchmarked and discussed against expert regulators and supervisors, hwhich is also a fundamental part of modern methods.
 
-### Documents
+### Scope and data collection
+
+387 documents were collected from five international bodies in financial regulation and supervision, covering 2018 to 2025. Each body's publications page served as the primary source: the BIS, for instance, maintains an "AI at BIS" stream, with equivalent AI-tagged collections drawn from FATF, IMF, OECD, and the World Bank. Inclusion required that a document mention "artificial intelligence" or "machine learning". Documents centred on topics outside the financial system, such as labour or health AI applications, were excluded.
+
+-  Image:Number of documents per year. Text: The number of documents that mention artificial intelligence or machine learning grows over 2018 to 2025, with a sharp acceleration after ChatGPT's release. The three post-ChatGPT years account for roughly 70 % of the database, with 48, 86, and 112 documents in 2023, 2024, and 2025 respectively. Hovering on any bar reveals the per-body breakdown for that year. /Users/marcosfabian/Documents/Documents/GitHub/AI_in_finance/Demo/stage_2/figures/F0/F0_n_docs_per_year.html . 
+
+-   Image: Pie of Type of doc. Text: Policy papers and academic papers each account for roughly a third of the database. Another 17 % consists of speeches and commentary, and the rest comes from stocktakes, formal standards, and country assessments. The supervisory work of these institutions and their internal research are receiving comparable attention to AI, though the content of that attention differ as shown next.
+/Users/marcosfabian/Documents/Documents/GitHub/AI_in_finance/Demo/stage_2/figures/F0/F0_doc_type_pie.html
+
  (Button to method of how we chose the documents)
-
-- We choose documents that are "artificial intelligence" relevant for the international bodies. For instance, the BIS classify its own document and has a section in their publications page called "AI at BIS" . I include all documents, speeches, etc that are classified like that.
-
--   Number of documents per year.
-
--   Pie of Type of doc (academic,policy, etc)
 
 ### Policy attention
 
@@ -80,3 +82,5 @@ The supervisory register dilutes the signal. Most post-2022 GenAI mentions in th
 ### Risk vs Tool
 
 Sentiment analysis.
+
+

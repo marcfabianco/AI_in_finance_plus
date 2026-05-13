@@ -40,39 +40,84 @@
     </section>
 
     <!-- SECTION 1 OPENER -->
-    <section class="section-opener" aria-labelledby="documents-title">
+    <section class="section-opener" aria-labelledby="scope-title">
       <div class="section-opener__inner">
-        <p class="eyebrow reveal" data-reveal-index="0">Section 01</p>
-        <h2 id="documents-title" class="section-opener__title reveal" data-reveal-index="1">
-          The corpus
+        <h2 id="scope-title" class="section-opener__title reveal" data-reveal-index="0">
+          Scope and data collection
         </h2>
-        <p class="section-opener__lede reveal" data-reveal-index="2">
-          Which documents we read, why we chose them, and how the corpus is
-          distributed over time and across types.
+        <p class="section-opener__lede section-opener__lede--wide reveal" data-reveal-index="1">
+          387 documents were collected from five international bodies in
+          financial regulation and supervision, covering 2018 to 2025. Each
+          body's publications page served as the primary source: the BIS,
+          for instance, maintains an "AI at BIS" stream, with equivalent
+          AI-tagged collections drawn from FATF, IMF, OECD, and the World
+          Bank. Inclusion required that a document mention "artificial
+          intelligence" or "machine learning". Documents centred on topics
+          outside the financial system, such as labour or health AI
+          applications, were excluded.
         </p>
       </div>
     </section>
 
-    <!-- SECTION 1 BODY -->
+    <!-- SECTION 1 BODY — DOCS PER YEAR -->
     <section class="section-body">
       <div class="section-body__inner">
-        <div class="prose reveal" data-reveal-index="0">
-          <p>
-            We include documents that international bodies themselves classify
-            as AI-relevant. The BIS, for instance, curates an
-            <em>AI at BIS</em> publications stream — we ingest all documents,
-            speeches, and notes filed under that classification.
-          </p>
-          <p>
-            Equivalent classifications are used at the FSB, IMF, World Bank,
-            FATF, and OECD. Insurers (IAIS) and securities (IOSCO) are out of
-            scope; gambling-adjacent AI literature is also excluded.
-          </p>
-          <p style="margin-top: 2rem;">
-            <a class="method-button" href="#" aria-label="Open the methodology note for document selection">
-              Methodology &rarr;
-            </a>
-          </p>
+        <div class="grid-figure-text">
+          <figure class="figure figure--interactive reveal" data-reveal-index="0" data-aspect="bar">
+            <iframe
+              src="assets/figures/F0_n_docs_per_year.html"
+              title="Number of AI-mentioning documents per year, 2018 to 2025"
+              loading="lazy"
+            ></iframe>
+            <figcaption class="figure-caption">
+              Documents per year. Hover any bar for the per-body breakdown.
+            </figcaption>
+          </figure>
+          <div class="prose reveal" data-reveal-index="1">
+            <p>
+              The number of documents that mention artificial intelligence or
+              machine learning grows over 2018 to 2025, with a sharp
+              acceleration after ChatGPT's release. The three post-ChatGPT
+              years account for roughly 70 % of the database, with 48, 86,
+              and 112 documents in 2023, 2024, and 2025 respectively.
+              Hovering on any bar reveals the per-body breakdown for that
+              year.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 1 BODY — DOC TYPE PIE -->
+    <section class="section-body">
+      <div class="section-body__inner">
+        <div class="grid-figure-text grid-figure-text--reverse">
+          <figure class="figure figure--interactive reveal" data-reveal-index="0" data-aspect="pie">
+            <iframe
+              src="assets/figures/F0_doc_type_pie.html"
+              title="Share of documents by type across the corpus"
+              loading="lazy"
+            ></iframe>
+            <figcaption class="figure-caption">
+              Composition of the corpus by document type.
+            </figcaption>
+          </figure>
+          <div class="prose reveal" data-reveal-index="1">
+            <p>
+              Policy papers and academic papers each account for roughly a
+              third of the database. Another 17 % consists of speeches and
+              commentary, and the rest comes from stocktakes, formal
+              standards, and country assessments. The supervisory work of
+              these institutions and their internal research are receiving
+              comparable attention to AI, though the content of that
+              attention differ as shown next.
+            </p>
+            <p style="margin-top: 1.5rem;">
+              <a class="method-button" href="#" aria-label="Open the methodology note for document selection">
+                Methodology &rarr;
+              </a>
+            </p>
+          </div>
         </div>
       </div>
     </section>
@@ -80,11 +125,10 @@
     <!-- SECTION 2 OPENER -->
     <section class="section-opener section-opener--tinted" aria-labelledby="attention-title">
       <div class="section-opener__inner">
-        <p class="eyebrow reveal" data-reveal-index="0">Section 02</p>
-        <h2 id="attention-title" class="section-opener__title reveal" data-reveal-index="1">
+        <h2 id="attention-title" class="section-opener__title reveal" data-reveal-index="0">
           Policy attention to AI
         </h2>
-        <p class="section-opener__lede reveal" data-reveal-index="2">
+        <p class="section-opener__lede reveal" data-reveal-index="1">
           Two complementary readings of the same corpus — one counts words,
           the other reads meaning.
         </p>

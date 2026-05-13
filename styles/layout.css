@@ -37,6 +37,7 @@
   color: var(--text-secondary);
   max-width: 36em;
 }
+.section-opener__lede--wide { max-width: 44em; }
 
 /* Alternate section opener tint for rhythm (use sparingly) */
 .section-opener--tinted { background: var(--bg-tint-darker); }
