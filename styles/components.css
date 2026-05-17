@@ -373,13 +373,19 @@
 }
 .note-body tbody tr:last-child td { border-bottom: 0; }
 
-/* Wider variant of .note-body for in-page use, where the section
-   already provides a max-width container and we want the prose +
-   tables to use it fully. */
+/* Wider variant of .note-body for in-page use. The article is capped
+   at a moderate column width and centred in its section container,
+   so prose, tables, and diagrams sit balanced rather than hanging to
+   one side. Paragraphs fill the article width — the article is the
+   reading column. */
+.note-body--free {
+  max-width: 60rem;
+  margin-inline: auto;
+}
 .note-body--free p,
 .note-body--free ul,
 .note-body--free ol {
-  max-width: 44em;
+  max-width: 100%;
 }
 .note-body--free table {
   margin-top: 1rem;
