@@ -173,7 +173,7 @@
           Attention to AI in these documents did not begin with ChatGPT.
           Documents from 2019 to 2021 already discussed AI and machine
           learning, often using terms like neural networks, natural language
-          processing, and natural language processing. After ChatGPT, the
+          processing, and deep learning. After ChatGPT, the
           discussion grew in volume and the vocabulary expanded. Generative
           AI, large language models, and agentic systems become standard
           terms in writing from 2023 onward. The interest is older than the
@@ -421,6 +421,186 @@
             </p>
           </div>
         </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4 OPENER -->
+    <section class="section-opener section-opener--flow section-opener--tinted" aria-labelledby="extra-title">
+      <div class="section-opener__inner">
+        <h2 id="extra-title" class="section-opener__title reveal" data-reveal-index="0">
+          Other potential analysis
+        </h2>
+        <p class="section-opener__lede section-opener__lede--wide reveal" data-reveal-index="1">
+          The previous sections measured where attention sits and how it
+          has moved. Three directions extend the analysis naturally as
+          next steps.
+        </p>
+      </div>
+    </section>
+
+    <!-- SECTION 4 BODY — RISK VS TOOL -->
+    <section class="section-body section-body--tight">
+      <div class="section-body__inner">
+        <article class="note-body note-body--free reveal" data-reveal-index="0">
+          <h3>Risk vs tool</h3>
+          <p>
+            Financial policy documents treat AI on both sides of their
+            agenda. The same body can frame AI as a source of risk and
+            as a tool of policy, sometimes in the same document. The
+            dual treatment shows up across concrete features of the
+            technology.
+          </p>
+          <table>
+            <thead>
+              <tr>
+                <th>Feature</th>
+                <th>As tool (suptech / regtech)</th>
+                <th>As risk</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Anomaly detection in transactions and conduct</strong></td>
+                <td>AML and CFT flagging, market-manipulation surveillance, misleading-marketing detection</td>
+                <td>False positives at scale, opaque flags, criminals using similar techniques to evade detection</td>
+              </tr>
+              <tr>
+                <td><strong>Forecasting of financial-system distress</strong></td>
+                <td>Liquidity-distress and default models, GDP nowcasting, scenario design for resilience tests</td>
+                <td>Correlated model errors across institutions, procyclical amplification, false confidence in tail-risk estimates</td>
+              </tr>
+              <tr>
+                <td><strong>Regulatory text understanding</strong></td>
+                <td>Parsing board minutes, fit-and-proper questionnaires, regulatory filings, cross-jurisdictional rule comparison</td>
+                <td>Misinterpretation of legal language, opacity of how a conclusion was reached</td>
+              </tr>
+              <tr>
+                <td><strong>Customer-facing decision automation</strong></td>
+                <td>Underwriting, instant credit approval, personalised insurance pricing, robo-advice</td>
+                <td>Discrimination, exclusion of thin-file applicants, unappealable decisions, lack of explanation to the customer</td>
+              </tr>
+            </tbody>
+          </table>
+          <p>
+            Each feature can be located on the risk-tool spectrum by
+            tracking how regulators, researchers, and commentary frame
+            it, both at a point in time and over the years. That
+            exercise is in itself a form of policy benchmarking. Where
+            the framings converge on a feature, principles and guidance
+            are ripe to emerge. Where they stay dispersed, the question
+            is still open and the field needs more research, discussion,
+            and understanding.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- SECTION 4 BODY — INCORPORATING QUANTITATIVE DATA -->
+    <section class="section-body section-body--tight">
+      <div class="section-body__inner">
+        <article class="note-body note-body--free reveal" data-reveal-index="0">
+          <h3>Incorporating quantitative data</h3>
+          <p>
+            Analysis does not have to stay in the terrain of text as
+            data. Modern methods are useful to conduct deeper
+            statistical inference work that might help to robustify
+            falsifiable claims mentioned in policy papers.
+          </p>
+          <p>
+            If it is possible to couple unstructured data with other
+            quantitative data, cross-jurisdictional variation becomes a
+            natural source of identification. Different jurisdictions
+            may have adopted different stances on the same questions,
+            at different points in time, and the supervisory outcomes
+            that followed are potentially observable. Several FSI
+            papers make potentially testable causal claims of this
+            type. A claim taken from Pérez-Cruz et al., 2025.
+          </p>
+
+          <figure class="causal-diagram" aria-label="Causal claim from Pérez-Cruz et al. 2025">
+            <div class="causal-diagram__row causal-diagram__row--top">
+              <div class="causal-box">
+                <p class="causal-box__title">Permissive explainability standards</p>
+                <p class="causal-box__sub">with adequate safeguards</p>
+              </div>
+              <div class="causal-link" role="presentation">
+                <span class="causal-link__label">asserted to enable</span>
+                <span class="causal-link__arrow">&rarr;</span>
+              </div>
+              <div class="causal-box">
+                <p class="causal-box__title">Better risk-management outcomes</p>
+                <p class="causal-box__sub">at sector level</p>
+              </div>
+            </div>
+            <div class="causal-diagram__row causal-diagram__row--middle" aria-hidden="true">
+              <div class="causal-meas">
+                <span class="causal-meas__arrow">&darr;</span>
+                <span class="causal-meas__label">measured by</span>
+              </div>
+              <div></div>
+              <div class="causal-meas">
+                <span class="causal-meas__arrow">&darr;</span>
+                <span class="causal-meas__label">measured by</span>
+              </div>
+            </div>
+            <div class="causal-diagram__row causal-diagram__row--bottom">
+              <p class="causal-source">Text-as-data from cross-border policy documents. Regulatory stance, scope, and timing per jurisdiction.</p>
+              <div></div>
+              <p class="causal-source">Aggregate supervisory and financial-soundness indicators.</p>
+            </div>
+            <figcaption class="figure-caption">
+              A causal claim adapted from Pérez-Cruz et al., 2025. Coupling
+              the two sources, exploiting cross-jurisdictional variation
+              in regulatory stance, tests whether the asserted effect
+              appears in the data.
+            </figcaption>
+          </figure>
+        </article>
+      </div>
+    </section>
+
+    <!-- SECTION 4 BODY — COMING BACK TO FINREP -->
+    <section class="section-body section-body--tight">
+      <div class="section-body__inner">
+        <article class="note-body note-body--free reveal" data-reveal-index="0">
+          <h3>Coming back to FinRep</h3>
+          <p>
+            In 2020 I contributed to the early stages of the BIS FinTech
+            Repository (FinRep), which launched in March 2022 and
+            provided centralised access to fintech-related policy and
+            regulatory documents from BIS-member central banks and
+            supervisors in 63 jurisdictions, alongside output from
+            international standard-setting bodies. FinRep is now
+            closing. The BIS's own closure note states that
+            <em>"recent advances in technology have made it easier to
+            search, summarise and compare relevant regulations across
+            jurisdictions and international bodies. As such, the need
+            for FinRep is significantly diminished."</em>
+          </p>
+          <p>
+            The same technical advances that justify the closure are
+            the methods this demo uses. FinRep accumulated four years
+            of cross-jurisdictional regulatory writing on fintech
+            topics spanning CBDC, crypto-assets, open banking, suptech,
+            big-tech-in-finance, and AI. Applying the methods shown
+            above to that material would answer the questions FinRep's
+            users came for, at scale and reproducibly. How have
+            specific regulatory frameworks diffused across
+            jurisdictions? Which bodies led and which followed? Where
+            and when did consensus form on a given topic? Which
+            approaches found adoption and which did not?
+          </p>
+          <p>
+            FinRep's closure leaves a structured, dated,
+            cross-jurisdictional dataset, ready to be analysed. The
+            same workflow this demo shows can be applied to it.
+            Text-as-data measures of attention and framing across
+            jurisdictions can be coupled with the supervisory and
+            financial-soundness indicators FSI Senior Advisors already
+            work with. The methodology shown here is the natural next
+            step for making use of FinRep's accumulated content.
+          </p>
+        </article>
       </div>
     </section>
   </main>
