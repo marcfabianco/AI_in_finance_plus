@@ -177,6 +177,10 @@ PAGE_TMPL = """<!doctype html>
       <p>Demo — methods preview. Some of these results need discussion and evaluation by more experienced FSI officials.</p>
     </div>
   </footer>
+
+  <!-- GoatCounter — privacy-friendly page analytics -->
+  <script data-goatcounter="https://marcfabianco.goatcounter.com/count"
+          async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
 """
